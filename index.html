@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dwan Services | Concrete Coatings · Landscaping · Snow Plowing</title>
+<title>Dwan Services | Premium Concrete Coatings — Michigan &amp; Illinois</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<meta name="description" content="Michigan & Illinois based. Premium concrete coatings, full-season landscaping, and reliable snow plowing. Free estimates — same-day response.">
+<meta name="description" content="Premium epoxy and polyurea concrete floor coatings in Michigan and Illinois. Garages, basements, commercial spaces. Free estimates — same-day response.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Dwan Services | Concrete Coatings · Landscaping · Snow Plowing">
-<meta property="og:description" content="Michigan & Illinois based. Premium concrete coatings, full-season landscaping, and reliable snow plowing. Free estimates — same-day response.">
+<meta property="og:title" content="Dwan Services | Concrete Coatings — Michigan &amp; Illinois">
+<meta property="og:description" content="Premium epoxy and polyurea concrete floor coatings. Garages, basements, commercial spaces. Free estimates — same-day response.">
 <meta property="og:image" content="https://www.dwanservices.com/og-image.png">
 <meta property="og:url" content="https://www.dwanservices.com">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Dwan Services | Concrete Coatings · Landscaping · Snow Plowing">
-<meta name="twitter:description" content="Michigan & Illinois based. Premium concrete coatings, full-season landscaping, and reliable snow plowing. Free estimates — same-day response.">
+<meta name="twitter:title" content="Dwan Services | Concrete Coatings — Michigan &amp; Illinois">
+<meta name="twitter:description" content="Premium epoxy and polyurea concrete floor coatings. Garages, basements, commercial spaces. Free estimates — same-day response.">
 <meta name="twitter:image" content="https://www.dwanservices.com/og-image.png">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -38,13 +38,14 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 .nav-links a:hover { color: var(--orange); }
 .nav-cta { background: var(--orange) !important; color: var(--black) !important; padding: 8px 18px; border-radius: 4px; font-weight: 700 !important; transition: background 0.2s !important; }
 .nav-cta:hover { background: var(--orange-bright) !important; }
+.nav-mobile-cta { display: none; }
 
 /* HERO */
 .hero { height: 100vh; min-height: 640px; position: relative; overflow-x: clip; overflow-y: hidden; display: flex; flex-direction: column; justify-content: center; padding: 66px 5% 0; }
 .hero-photo { position: absolute; inset: 0; z-index: 0; background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=80'); background-size: cover; background-position: center 40%; filter: brightness(0.32) saturate(0.55); transform: scale(1.04); transition: transform 8s ease-out; }
 .hero-photo.loaded { transform: scale(1); }
 .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(8,8,8,0.55) 0%, rgba(8,8,8,0.05) 28%, rgba(8,8,8,0.82) 78%, rgba(8,8,8,1) 100%), radial-gradient(ellipse 50% 60% at 82% 12%, rgba(232,104,26,0.22) 0%, transparent 65%); }
-.hero-content { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; gap: 14px; }
+.hero-content { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; gap: 14px; max-width: 860px; }
 .hero-eyebrow { display: flex; align-items: center; gap: 10px; }
 .eyebrow-line { width: 30px; height: 2px; background: var(--orange); flex-shrink: 0; }
 .eyebrow-text { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; color: var(--orange); }
@@ -52,20 +53,9 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 .hero-title .outline { -webkit-text-stroke: 2px rgba(255,255,255,0.48); color: transparent; }
 .hero-sub { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(12px, 1.5vw, 17px); font-weight: 400; letter-spacing: 6px; text-transform: uppercase; color: var(--silver-light); }
 .hero-sub span { color: var(--orange); }
-
-/* SERVICE CARDS */
-.hero-services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-.service-btn { display: flex; flex-direction: column; padding: 20px 20px 18px; background: rgba(10,10,10,0.82); border: 1px solid rgba(232,104,26,0.18); border-radius: 8px; text-decoration: none; backdrop-filter: blur(14px); transition: all 0.3s; position: relative; overflow: hidden; box-shadow: inset 0 0 40px rgba(232,104,26,0.04); }
-.service-btn::before { content: ''; position: absolute; inset: 0; border-radius: 8px; background: radial-gradient(ellipse 80% 55% at 50% 120%, rgba(232,104,26,0.2) 0%, transparent 65%); pointer-events: none; }
-.service-btn::after { content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, rgba(232,104,26,0.55), transparent); }
-.service-btn:hover { border-color: rgba(232,104,26,0.5); transform: translateY(-4px); background: rgba(16,16,16,0.92); box-shadow: 0 8px 32px rgba(232,104,26,0.16), inset 0 0 60px rgba(232,104,26,0.07); }
-.service-btn:hover .sb-arrow { transform: translateX(5px); }
-.sb-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }
-.sb-icon-wrap { width: 38px; height: 38px; background: #242424; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.07); flex-shrink: 0; }
-.sb-num { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(232,104,26,0.55); font-weight: 600; margin-top: 4px; }
-.sb-name { font-family: 'Bebas Neue', sans-serif; font-size: clamp(20px, 2.1vw, 26px); letter-spacing: 2px; color: var(--white); line-height: 1; margin-bottom: 8px; }
-.sb-desc { font-size: 12px; font-weight: 300; color: var(--silver); line-height: 1.55; margin-bottom: 14px; flex: 1; }
-.sb-arrow { font-size: 10px; letter-spacing: 2.5px; font-weight: 700; color: var(--orange); transition: transform 0.3s; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; }
+.hero-desc { font-size: 15px; font-weight: 300; line-height: 1.7; color: var(--silver-light); max-width: 500px; }
+.hero-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.hero-badge { display: inline-flex; align-items: center; gap: 5px; background: rgba(232,104,26,0.1); border: 1px solid rgba(232,104,26,0.25); color: var(--orange); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; }
 .hero-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: var(--black); padding: 11px 26px; border-radius: 4px; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; border: 2px solid var(--orange); transition: all 0.25s; }
 .btn-primary:hover { background: transparent; color: var(--orange); }
@@ -79,6 +69,49 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 .ticker-dot { width: 4px; height: 4px; background: rgba(0,0,0,0.3); border-radius: 50%; }
 @keyframes tick { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
+/* SECTION COMMONS */
+.eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.eyebrow-line2 { width: 24px; height: 2px; background: var(--orange); }
+.eyebrow-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; color: var(--orange); }
+.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(42px, 6vw, 76px); line-height: 0.93; letter-spacing: 2px; color: var(--white); margin-bottom: 14px; }
+.section-title .out { -webkit-text-stroke: 2px rgba(255,255,255,0.22); color: transparent; }
+
+/* OFFERS */
+.offers-section { background: var(--black); padding: 100px 5%; }
+.offers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 52px; }
+.offer-card { background: var(--dark2); border: 1px solid rgba(255,255,255,0.05); border-radius: 10px; padding: 32px 28px; position: relative; overflow: hidden; transition: transform 0.3s, border-color 0.3s; }
+.offer-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+.offer-card:hover { transform: translateY(-4px); border-color: rgba(232,104,26,0.3); }
+.offer-card:hover::after { transform: scaleX(1); }
+.offer-icon { width: 48px; height: 48px; background: #242424; border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+.offer-tag { display: inline-block; background: rgba(232,104,26,0.1); color: var(--orange); font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 4px 10px; border-radius: 100px; margin-bottom: 10px; }
+.offer-name { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; color: var(--white); margin-bottom: 10px; line-height: 1; }
+.offer-desc { font-size: 13px; font-weight: 300; line-height: 1.65; color: var(--silver); }
+.offer-features { list-style: none; display: flex; flex-direction: column; gap: 5px; margin-top: 14px; }
+.offer-features li { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--silver-light); }
+.offer-features li::before { content: ''; width: 5px; height: 5px; background: var(--orange); border-radius: 50%; flex-shrink: 0; }
+
+/* PROCESS */
+.process-section { background: var(--dark); padding: 100px 5%; }
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 56px; }
+.process-step { background: var(--dark2); padding: 40px 28px; position: relative; overflow: hidden; transition: background 0.3s; }
+.process-step:hover { background: var(--dark3); }
+.process-step::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+.process-step:hover::after { transform: scaleX(1); }
+.step-num { font-family: 'Bebas Neue', sans-serif; font-size: 64px; color: rgba(232,104,26,0.1); line-height: 1; margin-bottom: 12px; }
+.step-title { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--white); margin-bottom: 10px; }
+.step-desc { font-size: 13px; font-weight: 300; line-height: 1.65; color: var(--silver); }
+
+/* GALLERY */
+.gallery-section { background: var(--dark); }
+.gallery-header { padding: 80px 5% 52px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 300px 300px; gap: 4px; }
+.gallery-cell { overflow: hidden; position: relative; }
+.gallery-cell.tall { grid-row: 1 / 3; }
+.gallery-cell img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); transition: transform 0.6s, filter 0.4s; }
+.gallery-cell:hover img { transform: scale(1.06); filter: brightness(0.9); }
+.gallery-label { position: absolute; bottom: 16px; left: 16px; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); background: rgba(0,0,0,0.75); padding: 5px 12px; border-radius: 3px; }
+
 /* WHY */
 .why-section { background: var(--black); display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; padding: 100px 5%; }
 .why-cards { display: flex; flex-direction: column; gap: 10px; }
@@ -90,11 +123,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 .why-card-text { font-size: 12px; font-weight: 300; line-height: 1.6; color: var(--silver); }
 .why-pills { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 24px; }
 .pill { display: inline-flex; align-items: center; gap: 5px; background: rgba(232,104,26,0.08); border: 1px solid rgba(232,104,26,0.2); color: var(--orange); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; }
-.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(42px, 6vw, 76px); line-height: 0.93; letter-spacing: 2px; color: var(--white); margin-bottom: 14px; }
-.section-title .out { -webkit-text-stroke: 2px rgba(255,255,255,0.22); color: transparent; }
-.eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-.eyebrow-line2 { width: 24px; height: 2px; background: var(--orange); }
-.eyebrow-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; color: var(--orange); }
 
 /* COVERAGE */
 .coverage-section { background: var(--dark); padding: 100px 5%; }
@@ -113,15 +141,6 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 .form-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(44px, 6vw, 78px); line-height: 0.93; letter-spacing: 2px; color: var(--white); margin-bottom: 16px; }
 .form-title .out { -webkit-text-stroke: 2px rgba(255,255,255,0.22); color: transparent; }
 .form-subtitle { font-size: 15px; font-weight: 300; color: var(--silver-light); line-height: 1.7; margin-bottom: 44px; max-width: 520px; }
-.service-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 36px; }
-.service-tab { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 18px 12px; border-radius: 8px; cursor: pointer; background: var(--dark2); border: 2px solid rgba(255,255,255,0.06); transition: all 0.25s; }
-.service-tab:hover { border-color: rgba(232,104,26,0.35); }
-.service-tab.active { border-color: var(--orange); background: rgba(232,104,26,0.08); box-shadow: 0 0 20px rgba(232,104,26,0.12); }
-.tab-label { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--silver-light); }
-.service-tab.active .tab-label { color: var(--orange); }
-.form-panel { display: none; }
-.form-panel.active { display: block; animation: fadeIn 0.3s ease; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .form-group { display: flex; flex-direction: column; gap: 7px; }
 .form-group.full { grid-column: 1 / -1; }
@@ -144,7 +163,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 .btn-submit { display: inline-flex; align-items: center; gap: 10px; background: var(--orange); color: var(--black); padding: 14px 36px; border-radius: 5px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.25s; }
 .btn-submit:hover { background: var(--orange-bright); transform: translateY(-2px); }
 
-/* CTA */
+/* CTA BAND */
 .cta-band { background: var(--orange); padding: 68px 5%; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
 .cta-band h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 5vw, 64px); color: var(--black); line-height: 0.9; letter-spacing: 2px; margin-bottom: 8px; }
 .cta-band p { font-size: 14px; color: rgba(0,0,0,0.56); max-width: 360px; }
@@ -175,13 +194,11 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
 .fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-/* Mobile nav CTA — hidden on desktop */
-.nav-mobile-cta { display: none; }
-
-@media (max-width: 1024px) { .sb-desc { font-size: 11px; } }
-
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .offers-grid { grid-template-columns: 1fr 1fr; }
+}
 @media (max-width: 860px) {
-  .hero-services { grid-template-columns: 1fr; max-width: 100%; }
   .why-section { grid-template-columns: 1fr; padding: 70px 5%; }
   .coverage-inner { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -195,49 +212,37 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
     text-decoration: none; white-space: nowrap;
   }
   .form-grid { grid-template-columns: 1fr; }
-  .service-tabs { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr 1fr; }
 }
-
 @media (max-width: 768px) {
-  /* FIX: stop centering — content taller than screen pushes title behind nav */
   .hero { justify-content: flex-start; padding-top: 96px; height: auto; min-height: 100svh; }
-
-  /* Hero title fits cleanly */
   .hero-title { font-size: 13vw; letter-spacing: 0px; line-height: 0.95; }
   .hero-title .outline { -webkit-text-stroke: 1.5px rgba(255,255,255,0.48); }
-
-  /* Compact service cards so they don't eat all the space */
-  .hero-services { max-width: 100%; gap: 8px; }
-  .service-btn { padding: 14px 16px 12px; }
-  .sb-desc { display: none; }
-
-  /* Hero actions: single big CTA, remove phone button */
   .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; padding-bottom: 32px; }
-  .hero-actions .btn-primary { width: 100%; justify-content: center; text-align: center; font-size: 14px; padding: 15px 32px; letter-spacing: 3px; }
+  .hero-actions .btn-primary { width: 100%; justify-content: center; font-size: 14px; padding: 15px 32px; letter-spacing: 3px; }
   .hero-actions .btn-ghost { display: none; }
-
-  /* Why section pills wrap nicely */
+  .offers-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .gallery-cell.tall { grid-row: auto; grid-column: 1 / 3; height: 280px; }
+  .gallery-cell { height: 220px; }
   .why-pills { gap: 6px; }
   .pill { font-size: 9px; padding: 4px 10px; }
-
-  /* Coverage areas: single column */
   .areas-grid { grid-template-columns: 1fr 1fr; }
-
-  /* Form submit row: stack */
   .form-submit-row { flex-direction: column; align-items: stretch; gap: 14px; }
   .btn-submit { width: 100%; justify-content: center; }
   .form-note { text-align: center; }
-
-  /* CTA band */
   .cta-band { text-align: center; justify-content: center; flex-direction: column; padding: 48px 5%; }
   .cta-right { align-items: center; }
   .cta-phone { font-size: 30px; }
   .btn-dark { width: 100%; justify-content: center; }
-
-  /* Footer */
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
 }
-
+@media (max-width: 640px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-cell.tall { grid-column: auto; height: 220px; }
+  .gallery-cell { height: 200px; }
+  .process-grid { grid-template-columns: 1fr; }
+}
 @media (max-width: 400px) {
   .areas-grid { grid-template-columns: 1fr; }
   .hero-eyebrow { flex-wrap: wrap; }
@@ -248,8 +253,7 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo">
-    <!-- DWAN Logo SVG — exact brand replication: sharp square, DW white top, AN black bottom -->
+  <a href="#home" class="nav-logo">
     <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="dwan-lg" x1="0" y1="0" x2="0" y2="1">
@@ -259,14 +263,11 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
         </linearGradient>
       </defs>
       <rect width="100" height="100" fill="url(#dwan-lg)"/>
-      <!-- Divider line between DW and AN -->
       <line x1="6" y1="50" x2="94" y2="50" stroke="rgba(0,0,0,0.18)" stroke-width="1"/>
-      <!-- DW — white, top half -->
       <text x="50" y="26" text-anchor="middle" dominant-baseline="middle"
         font-family="'Bebas Neue', Impact, 'Arial Black', sans-serif"
         font-size="52" font-weight="900" fill="#ffffff"
         textLength="88" lengthAdjust="spacingAndGlyphs">DW</text>
-      <!-- AN — near-black, bottom half -->
       <text x="50" y="74" text-anchor="middle" dominant-baseline="middle"
         font-family="'Bebas Neue', Impact, 'Arial Black', sans-serif"
         font-size="52" font-weight="900" fill="#0d0d0d"
@@ -274,13 +275,14 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
     </svg>
     <div class="nav-brand">
       <div class="nav-name">Dwan Services</div>
-      <span class="nav-sub">Michigan &amp; Illinois</span>
+      <span class="nav-sub">Concrete Coatings</span>
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="concrete.html">Concrete Coatings</a></li>
-    <li><a href="landscaping.html">Landscaping</a></li>
-    <li><a href="plowing.html">Snow Plowing</a></li>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#areas">Service Areas</a></li>
     <li><a href="#quote" class="nav-cta">Get a Quote</a></li>
   </ul>
   <a href="#quote" class="nav-mobile-cta">Get a Quote</a>
@@ -293,92 +295,20 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
   <div class="hero-content">
     <div class="hero-eyebrow">
       <div class="eyebrow-line"></div>
-      <span class="eyebrow-text">Michigan &amp; Illinois Based</span>
+      <span class="eyebrow-text">Michigan &amp; Illinois · Concrete Specialists</span>
     </div>
     <h1 class="hero-title">DWAN<br><span class="outline">SERVICES</span></h1>
-    <p class="hero-sub">Concrete · <span>Landscaping</span> · Snow Plowing</p>
-
-    <div class="hero-services">
-
-      <!-- CONCRETE COATINGS — paint roller/wall brush icon -->
-      <a href="concrete.html" class="service-btn">
-        <div class="sb-top">
-          <div class="sb-icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Paint roller head -->
-              <rect x="4" y="3" width="14" height="6" rx="1.5" stroke="white" stroke-width="1.6"/>
-              <!-- Roller handle arm -->
-              <path d="M11 9 L11 13" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
-              <!-- Vertical handle -->
-              <path d="M11 13 L8 13 L8 20" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-              <!-- Handle grip end -->
-              <line x1="6" y1="20" x2="10" y2="20" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-              <!-- Roller cylinder -->
-              <rect x="5" y="4.5" width="12" height="3" rx="1" fill="white" opacity="0.25"/>
-            </svg>
-          </div>
-          <span class="sb-num">01</span>
-        </div>
-        <div class="sb-name">Concrete Coatings</div>
-        <p class="sb-desc">Premium epoxy and polyurea floor systems for garages, basements, patios, and commercial spaces. Durable, high-gloss, and built to last.</p>
-        <span class="sb-arrow">Explore Service →</span>
-      </a>
-
-      <!-- LANDSCAPING — leaf / plant sprouting icon -->
-      <a href="landscaping.html" class="service-btn">
-        <div class="sb-top">
-          <div class="sb-icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Ground line -->
-              <line x1="3" y1="20" x2="21" y2="20" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
-              <!-- Main stem -->
-              <path d="M12 20 L12 13" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
-              <!-- Left leaf -->
-              <path d="M12 16 C12 16 7 15 6 10 C6 10 11 10 12 15" fill="white" opacity="0.9"/>
-              <!-- Right leaf -->
-              <path d="M12 13 C12 13 17 11 18 6 C18 6 13 7 12 12" fill="white" opacity="0.9"/>
-              <!-- Small left sprout -->
-              <path d="M8 20 L8 17 C8 17 6 16 5 14" stroke="white" stroke-width="1.3" stroke-linecap="round" fill="none" opacity="0.6"/>
-              <!-- Small right sprout -->
-              <path d="M16 20 L16 17 C16 17 18 16 19 14" stroke="white" stroke-width="1.3" stroke-linecap="round" fill="none" opacity="0.6"/>
-            </svg>
-          </div>
-          <span class="sb-num">02</span>
-        </div>
-        <div class="sb-name">Landscaping &amp; Lawn</div>
-        <p class="sb-desc">Full-season lawn maintenance, spring and fall cleanups, mulching, edging, shrub trimming, and more. We keep your property sharp all year.</p>
-        <span class="sb-arrow">Explore Service →</span>
-      </a>
-
-      <!-- SNOW PLOWING — clean snowflake icon -->
-      <a href="plowing.html" class="service-btn">
-        <div class="sb-top">
-          <div class="sb-icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line x1="12" y1="2" x2="12" y2="22" stroke="white" stroke-width="1.7" stroke-linecap="round"/>
-              <line x1="2" y1="12" x2="22" y2="12" stroke="white" stroke-width="1.7" stroke-linecap="round"/>
-              <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="white" stroke-width="1.7" stroke-linecap="round"/>
-              <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="white" stroke-width="1.7" stroke-linecap="round"/>
-              <!-- Branch tips -->
-              <path d="M12 2 L10 5 M12 2 L14 5" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
-              <path d="M12 22 L10 19 M12 22 L14 19" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
-              <path d="M2 12 L5 10 M2 12 L5 14" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
-              <path d="M22 12 L19 10 M22 12 L19 14" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
-              <circle cx="12" cy="12" r="2" fill="white"/>
-            </svg>
-          </div>
-          <span class="sb-num">03</span>
-        </div>
-        <div class="sb-name">Snow Plowing</div>
-        <p class="sb-desc">Residential and commercial snow removal with fast response times. Seasonal contracts available so you never have to think about it.</p>
-        <span class="sb-arrow">Explore Service →</span>
-      </a>
-
+    <p class="hero-sub">Epoxy · <span>Polyurea</span> · Chip Systems · Commercial</p>
+    <p class="hero-desc">Professional concrete floor coatings for garages, basements, patios, and commercial spaces. Built to last — backed by a crew that takes the job seriously.</p>
+    <div class="hero-badges">
+      <span class="hero-badge">✓ Free Estimates</span>
+      <span class="hero-badge">✓ Same-Day Response</span>
+      <span class="hero-badge">✓ Licensed &amp; Insured</span>
+      <span class="hero-badge">✓ Michigan &amp; Illinois</span>
     </div>
-
     <div class="hero-actions">
       <a href="#quote" class="btn-primary">Get a Free Quote →</a>
-      <a href="tel:2692084383" class="btn-ghost">📞 269.208.4383</a>
+      <a href="tel:2692084383" class="btn-ghost">269.208.4383</a>
     </div>
   </div>
 </div>
@@ -386,40 +316,222 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
 <!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker">
-    <span class="ticker-item">Concrete Coatings<span class="ticker-dot"></span></span>
-    <span class="ticker-item">Epoxy &amp; Polyurea<span class="ticker-dot"></span></span>
-    <span class="ticker-item">Lawn Care<span class="ticker-dot"></span></span>
-    <span class="ticker-item">Landscaping<span class="ticker-dot"></span></span>
-    <span class="ticker-item">Snow Plowing<span class="ticker-dot"></span></span>
-    <span class="ticker-item">Ice Management<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Epoxy Floors<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Polyurea Coatings<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Chip Broadcast Systems<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Garage Floors<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Basement Coatings<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Commercial Floors<span class="ticker-dot"></span></span>
+    <span class="ticker-item">UV Resistant<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Chemical Resistant<span class="ticker-dot"></span></span>
     <span class="ticker-item">St. Joseph, MI<span class="ticker-dot"></span></span>
     <span class="ticker-item">Cook County, IL<span class="ticker-dot"></span></span>
     <span class="ticker-item">Free Estimates<span class="ticker-dot"></span></span>
-    <span class="ticker-item">Year-Round Service<span class="ticker-dot"></span></span>
-    <span class="ticker-item">Concrete Coatings<span class="ticker-dot"></span></span>
-    <span class="ticker-item">Epoxy &amp; Polyurea<span class="ticker-dot"></span></span>
-    <span class="ticker-item">Lawn Care<span class="ticker-dot"></span></span>
-    <span class="ticker-item">Landscaping<span class="ticker-dot"></span></span>
-    <span class="ticker-item">Snow Plowing<span class="ticker-dot"></span></span>
-    <span class="ticker-item">Ice Management<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Epoxy Floors<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Polyurea Coatings<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Chip Broadcast Systems<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Garage Floors<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Basement Coatings<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Commercial Floors<span class="ticker-dot"></span></span>
+    <span class="ticker-item">UV Resistant<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Chemical Resistant<span class="ticker-dot"></span></span>
     <span class="ticker-item">St. Joseph, MI<span class="ticker-dot"></span></span>
     <span class="ticker-item">Cook County, IL<span class="ticker-dot"></span></span>
     <span class="ticker-item">Free Estimates<span class="ticker-dot"></span></span>
-    <span class="ticker-item">Year-Round Service<span class="ticker-dot"></span></span>
   </div>
 </div>
+
+<!-- WHAT WE OFFER -->
+<section class="offers-section" id="services">
+  <div class="eyebrow fade-up"><div class="eyebrow-line2"></div><span class="eyebrow-label">What We Offer</span></div>
+  <h2 class="section-title fade-up">FLOOR SYSTEMS<br><span class="out">BUILT TO LAST</span></h2>
+  <div class="offers-grid">
+
+    <div class="offer-card fade-up">
+      <div class="offer-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="3" width="14" height="6" rx="1.5"/>
+          <path d="M11 9 L11 13 L8 13 L8 20"/>
+          <line x1="6" y1="20" x2="10" y2="20"/>
+        </svg>
+      </div>
+      <span class="offer-tag">System 01</span>
+      <div class="offer-name">Epoxy Floor Systems</div>
+      <p class="offer-desc">High-build epoxy coatings that bond directly to concrete. Available in solid colors, metallics, and custom blends — garage-ready or showroom-sharp.</p>
+      <ul class="offer-features">
+        <li>Seamless, easy-clean surface</li>
+        <li>Chemical &amp; stain resistant</li>
+        <li>High-gloss or satin finish</li>
+      </ul>
+    </div>
+
+    <div class="offer-card fade-up" style="transition-delay:.07s">
+      <div class="offer-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5"/>
+          <path d="M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      <span class="offer-tag">System 02</span>
+      <div class="offer-name">Polyurea Coatings</div>
+      <p class="offer-desc">Flexible, ultra-durable polyurea topcoats that outperform standard epoxy. UV-stable and impact-resistant — the professional standard.</p>
+      <ul class="offer-features">
+        <li>4x more impact resistance than epoxy</li>
+        <li>UV-stable — won't yellow</li>
+        <li>Cures fast, back in service sooner</li>
+      </ul>
+    </div>
+
+    <div class="offer-card fade-up" style="transition-delay:.14s">
+      <div class="offer-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="5" cy="5" r="1.5" fill="white"/>
+          <circle cx="12" cy="3" r="1.5" fill="white"/>
+          <circle cx="19" cy="6" r="1.5" fill="white"/>
+          <circle cx="3" cy="12" r="1.5" fill="white"/>
+          <circle cx="10" cy="10" r="1.5" fill="white"/>
+          <circle cx="17" cy="13" r="1.5" fill="white"/>
+          <circle cx="6" cy="18" r="1.5" fill="white"/>
+          <circle cx="14" cy="19" r="1.5" fill="white"/>
+          <circle cx="20" cy="20" r="1.5" fill="white"/>
+        </svg>
+      </div>
+      <span class="offer-tag">Most Popular</span>
+      <div class="offer-name">Chip Broadcast</div>
+      <p class="offer-desc">Decorative vinyl flake chips broadcast into the base coat, sealed with a clear polyurea topcoat. The industry standard for garage floors.</p>
+      <ul class="offer-features">
+        <li>Dozens of color blends available</li>
+        <li>Hides imperfections beautifully</li>
+        <li>Non-slip texture built in</li>
+      </ul>
+    </div>
+
+    <div class="offer-card fade-up" style="transition-delay:.21s">
+      <div class="offer-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+      </div>
+      <span class="offer-tag">Most Common</span>
+      <div class="offer-name">Garage Floors</div>
+      <p class="offer-desc">Transform bare concrete into a showroom-quality surface that's durable, cleanable, and sharp. Single-car to large multi-car garages.</p>
+      <ul class="offer-features">
+        <li>Single &amp; multi-car garages</li>
+        <li>Driveways &amp; aprons</li>
+        <li>Full surface prep included</li>
+      </ul>
+    </div>
+
+    <div class="offer-card fade-up" style="transition-delay:.28s">
+      <div class="offer-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/>
+          <path d="M8 21h8M12 17v4"/>
+        </svg>
+      </div>
+      <span class="offer-tag">Interior</span>
+      <div class="offer-name">Basements &amp; Interiors</div>
+      <p class="offer-desc">Sealed, bright, moisture-resistant basement floors ready for living or storage. Patios and sunrooms too — any concrete surface qualifies.</p>
+      <ul class="offer-features">
+        <li>Moisture mitigation options</li>
+        <li>Seamless full-room coverage</li>
+        <li>Patios &amp; sunrooms included</li>
+      </ul>
+    </div>
+
+    <div class="offer-card fade-up" style="transition-delay:.35s">
+      <div class="offer-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2"/>
+          <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
+          <line x1="12" y1="12" x2="12" y2="16"/>
+          <line x1="10" y1="14" x2="14" y2="14"/>
+        </svg>
+      </div>
+      <span class="offer-tag">Commercial</span>
+      <div class="offer-name">Commercial Spaces</div>
+      <p class="offer-desc">High-performance floor systems for warehouses, showrooms, retail, and industrial environments. Heavy-duty formulas built for foot and vehicle traffic.</p>
+      <ul class="offer-features">
+        <li>Warehouses &amp; manufacturing</li>
+        <li>Showrooms &amp; retail</li>
+        <li>Custom broadcast or solid color</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="eyebrow fade-up"><div class="eyebrow-line2"></div><span class="eyebrow-label">How It Works</span></div>
+  <h2 class="section-title fade-up">OUR<br><span class="out">PROCESS</span></h2>
+  <div class="process-grid">
+    <div class="process-step fade-up">
+      <div class="step-num">01</div>
+      <div class="step-title">Free Consultation</div>
+      <p class="step-desc">Brian comes to your space, assesses the floor condition, and gives you a straight quote — no obligation, no pressure, no sales tactics.</p>
+    </div>
+    <div class="process-step fade-up" style="transition-delay:.08s">
+      <div class="step-num">02</div>
+      <div class="step-title">Surface Prep</div>
+      <p class="step-desc">We grind and profile the concrete to ensure maximum bond strength. Cracks, spalls, and problem areas are repaired before any coating touches the floor.</p>
+    </div>
+    <div class="process-step fade-up" style="transition-delay:.16s">
+      <div class="step-num">03</div>
+      <div class="step-title">Coating Application</div>
+      <p class="step-desc">Base coat goes down, chips are broadcast if applicable, and a protective polyurea topcoat seals everything in. Layered for a flawless, lasting finish.</p>
+    </div>
+    <div class="process-step fade-up" style="transition-delay:.24s">
+      <div class="step-num">04</div>
+      <div class="step-title">Final Inspection</div>
+      <p class="step-desc">We walk the completed job with you before we leave. If it's not right, we make it right — every single time, no exceptions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-header fade-up">
+    <div class="eyebrow"><div class="eyebrow-line2"></div><span class="eyebrow-label">Our Work</span></div>
+    <h2 class="section-title">SEE THE<br><span class="out">RESULTS</span></h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-cell tall">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Chip broadcast garage floor coating" loading="lazy">
+      <span class="gallery-label">Chip Broadcast Garage</span>
+    </div>
+    <div class="gallery-cell">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Commercial floor coating" loading="lazy">
+      <span class="gallery-label">Commercial Space</span>
+    </div>
+    <div class="gallery-cell">
+      <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&q=80" alt="Metallic epoxy floor" loading="lazy">
+      <span class="gallery-label">Metallic Epoxy</span>
+    </div>
+    <div class="gallery-cell">
+      <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&q=80" alt="Polyurea floor coating" loading="lazy">
+      <span class="gallery-label">Polyurea Topcoat</span>
+    </div>
+    <div class="gallery-cell">
+      <img src="https://images.unsplash.com/photo-1615209853186-e4bd66602508?w=800&q=80" alt="Basement floor coating" loading="lazy">
+      <span class="gallery-label">Basement Interior</span>
+    </div>
+  </div>
+</section>
 
 <!-- WHY DWAN -->
 <section class="why-section" id="about">
   <div class="fade-up">
     <div class="eyebrow"><div class="eyebrow-line2"></div><span class="eyebrow-label">Why Choose Us</span></div>
     <h2 class="section-title">QUALITY<br>YOU CAN<br><span class="out">TRUST</span></h2>
-    <p style="font-size:14px;font-weight:300;line-height:1.8;color:var(--silver-light);margin:14px 0 20px;max-width:380px;">Built on one principle — do the job right the first time. Whether we're coating a garage floor or clearing a lot at 4am, same work ethic every time.</p>
+    <p style="font-size:14px;font-weight:300;line-height:1.8;color:var(--silver-light);margin:14px 0 20px;max-width:380px;">Built on one principle — do the job right the first time. Every floor gets full surface prep, professional-grade materials, and a finish that holds up for years.</p>
     <div class="why-pills">
       <span class="pill">✓ Free Estimates</span>
       <span class="pill">✓ Same-Day Response</span>
-      <span class="pill">✓ Year-Round</span>
       <span class="pill">✓ Licensed &amp; Insured</span>
+      <span class="pill">✓ Surface Prep Included</span>
     </div>
     <a href="#quote" class="btn-primary">Get Your Free Quote →</a>
   </div>
@@ -430,7 +542,7 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
           <path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/>
         </svg>
       </div>
-      <div><div class="why-card-title">All-Season Coverage</div><p class="why-card-text">Concrete and landscaping warm months, plowing all winter. One crew, zero gaps.</p></div>
+      <div><div class="why-card-title">Professional Surface Prep</div><p class="why-card-text">We grind and profile every floor before coating. Proper prep is the difference between a coating that lasts and one that peels.</p></div>
     </div>
     <div class="why-card fade-up" style="transition-delay:.1s">
       <div class="why-icon">
@@ -438,7 +550,7 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
           <path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/>
         </svg>
       </div>
-      <div><div class="why-card-title">Premium Materials</div><p class="why-card-text">Professional-grade epoxy and polyurea. Our coatings outlast every competitor.</p></div>
+      <div><div class="why-card-title">Premium Materials Only</div><p class="why-card-text">Professional-grade epoxy and polyurea — the same products used in commercial and industrial settings. No big-box store materials.</p></div>
     </div>
     <div class="why-card fade-up" style="transition-delay:.2s">
       <div class="why-icon">
@@ -446,7 +558,7 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
         </svg>
       </div>
-      <div><div class="why-card-title">Local &amp; Reliable</div><p class="why-card-text">Based in Benton Harbor, MI. You'll always deal directly with Brian — no call centers.</p></div>
+      <div><div class="why-card-title">Local &amp; Reliable</div><p class="why-card-text">Based in Benton Harbor, MI. You'll always deal directly with Brian — no call centers, no subcontractors, no surprises.</p></div>
     </div>
     <div class="why-card fade-up" style="transition-delay:.3s">
       <div class="why-icon">
@@ -454,18 +566,18 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
           <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
         </svg>
       </div>
-      <div><div class="why-card-title">No Surprise Pricing</div><p class="why-card-text">Every job starts with a straight, no-obligation quote. What we say is what you pay.</p></div>
+      <div><div class="why-card-title">No Surprise Pricing</div><p class="why-card-text">Every job starts with a straight, no-obligation quote. What we say is what you pay — period.</p></div>
     </div>
   </div>
 </section>
 
-<!-- COVERAGE -->
-<section class="coverage-section" id="coverage">
+<!-- SERVICE AREAS -->
+<section class="coverage-section" id="areas">
   <div class="eyebrow"><div class="eyebrow-line2"></div><span class="eyebrow-label">Service Areas</span></div>
   <h2 class="section-title">MICHIGAN<br>&amp; <span class="out">ILLINOIS</span></h2>
   <div class="coverage-inner">
     <div class="fade-up">
-      <p style="font-size:14px;font-weight:300;line-height:1.8;color:var(--silver-light);margin-bottom:24px;max-width:380px;">Based in Benton Harbor, MI — covering all of Southwest Michigan and Cook County, Illinois. Not sure if we reach you? Give Brian a call and we'll make it work.</p>
+      <p style="font-size:14px;font-weight:300;line-height:1.8;color:var(--silver-light);margin-bottom:24px;max-width:380px;">Based in Benton Harbor, MI — serving all of Southwest Michigan and Cook County, Illinois. Not sure if we reach you? Call Brian and we'll make it work.</p>
       <a href="tel:2692084383" class="btn-primary">Call Brian: 269.208.4383</a>
     </div>
     <div class="areas-grid">
@@ -482,158 +594,55 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
   <div class="form-section-inner">
     <div class="form-eyebrow"><div class="eyebrow-line2"></div><span class="eyebrow-label">Free Estimate</span></div>
     <h2 class="form-title">GET A<br><span class="out">FREE QUOTE</span></h2>
-    <p class="form-subtitle">Tell us about your project and we'll get back to you same day with a straight number — no obligation.</p>
-
-    <div class="service-tabs">
-      <div class="service-tab active" onclick="switchTab('concrete', this)">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="4" y="3" width="14" height="6" rx="1.5"/>
-          <path d="M11 9 L11 13 L8 13 L8 20"/>
-          <line x1="6" y1="20" x2="10" y2="20"/>
-        </svg>
-        <span class="tab-label">Concrete Coatings</span>
+    <p class="form-subtitle">Tell us about your floor and we'll get back to you same day with a straight number — no obligation, no pressure.</p>
+    <div class="form-grid">
+      <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Brian Smith"></div>
+      <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(269) 555-0000"></div>
+      <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@email.com"></div>
+      <div class="form-group"><label class="form-label">Property Address</label><input class="form-input" type="text" placeholder="123 Main St, St. Joseph, MI"></div>
+      <div class="form-group">
+        <label class="form-label">Space Type</label>
+        <select class="form-select">
+          <option value="" disabled selected>Select space type...</option>
+          <option>Garage (1-car)</option>
+          <option>Garage (2-car or larger)</option>
+          <option>Basement</option>
+          <option>Patio / Porch</option>
+          <option>Commercial Warehouse</option>
+          <option>Showroom / Retail</option>
+          <option>Other</option>
+        </select>
       </div>
-      <div class="service-tab" onclick="switchTab('landscaping', this)">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="20" x2="21" y2="20"/>
-          <path d="M12 20 L12 13"/>
-          <path d="M12 16 C12 16 7 15 6 10 C6 10 11 10 12 15" fill="currentColor" stroke="none" opacity="0.7"/>
-          <path d="M12 13 C12 13 17 11 18 6 C18 6 13 7 12 12" fill="currentColor" stroke="none" opacity="0.7"/>
-        </svg>
-        <span class="tab-label">Landscaping</span>
+      <div class="form-group">
+        <label class="form-label">Approximate Square Footage</label>
+        <select class="form-select">
+          <option value="" disabled selected>Select size...</option>
+          <option>Under 400 sq ft</option>
+          <option>400 – 800 sq ft</option>
+          <option>800 – 1,500 sq ft</option>
+          <option>1,500 – 3,000 sq ft</option>
+          <option>3,000+ sq ft</option>
+        </select>
       </div>
-      <div class="service-tab" onclick="switchTab('plowing', this)">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
-          <line x1="12" y1="2" x2="12" y2="22"/>
-          <line x1="2" y1="12" x2="22" y2="12"/>
-          <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
-          <line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/>
-          <circle cx="12" cy="12" r="2" fill="currentColor"/>
-        </svg>
-        <span class="tab-label">Snow Plowing</span>
+      <div class="form-group full">
+        <label class="form-label">Current Condition of the Floor</label>
+        <textarea class="form-textarea" placeholder="Any cracks, stains, existing coatings, moisture issues? Describe what you're working with..."></textarea>
       </div>
-    </div>
-
-    <!-- CONCRETE FORM -->
-    <div class="form-panel active" id="form-concrete">
-      <div class="form-grid">
-        <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Brian Smith"></div>
-        <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(269) 555-0000"></div>
-        <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@email.com"></div>
-        <div class="form-group"><label class="form-label">Property Address</label><input class="form-input" type="text" placeholder="123 Main St, St. Joseph, MI"></div>
-        <div class="form-group">
-          <label class="form-label">Space Type</label>
-          <select class="form-select">
-            <option value="" disabled selected>Select space type...</option>
-            <option>Garage</option><option>Basement</option><option>Patio / Porch</option>
-            <option>Commercial Warehouse</option><option>Showroom / Retail</option><option>Other</option>
-          </select>
+      <div class="form-group full">
+        <label class="form-label">Upload a Photo of the Space (optional but helpful)</label>
+        <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+          <div style="font-size:26px;margin-bottom:6px;">📷</div>
+          <div class="upload-text"><strong>Click to upload</strong> or drag and drop</div>
+          <div class="upload-hint">JPG, PNG, HEIC — max 20MB</div>
+          <div id="fileName"></div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Approximate Square Footage</label>
-          <select class="form-select">
-            <option value="" disabled selected>Select size...</option>
-            <option>Under 400 sq ft</option><option>400 – 800 sq ft</option>
-            <option>800 – 1,500 sq ft</option><option>1,500 – 3,000 sq ft</option><option>3,000+ sq ft</option>
-          </select>
-        </div>
-        <div class="form-group full"><label class="form-label">Current Condition of the Floor</label><textarea class="form-textarea" placeholder="Any cracks, stains, existing coatings, moisture issues? Describe what you're working with..."></textarea></div>
-        <div class="form-group full">
-          <label class="form-label">Upload a Photo of the Space (optional but helpful)</label>
-          <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
-            <div style="font-size:26px;margin-bottom:6px;">📷</div>
-            <div class="upload-text"><strong>Click to upload</strong> or drag and drop</div>
-            <div class="upload-hint">JPG, PNG, HEIC — max 20MB</div>
-            <div id="fileName"></div>
-          </div>
-          <input type="file" id="fileInput" accept="image/*" onchange="document.getElementById('fileName').textContent = this.files[0]?.name || ''">
-        </div>
-      </div>
-      <div class="form-submit-row">
-        <span class="form-note">We'll respond within a few hours — usually same day.</span>
-        <button class="btn-submit" onclick="submitForm(this)">Submit Quote Request →</button>
+        <input type="file" id="fileInput" accept="image/*" onchange="document.getElementById('fileName').textContent = this.files[0]?.name || ''">
       </div>
     </div>
-
-    <!-- LANDSCAPING FORM -->
-    <div class="form-panel" id="form-landscaping">
-      <div class="form-grid">
-        <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Brian Smith"></div>
-        <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(269) 555-0000"></div>
-        <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@email.com"></div>
-        <div class="form-group"><label class="form-label">Property Address</label><input class="form-input" type="text" placeholder="123 Main St, St. Joseph, MI"></div>
-        <div class="form-group">
-          <label class="form-label">Services Needed</label>
-          <select class="form-select">
-            <option value="" disabled selected>What do you need?</option>
-            <option>Weekly / Bi-Weekly Mowing</option><option>Spring Cleanup</option>
-            <option>Fall Cleanup &amp; Leaf Removal</option><option>Mulching &amp; Bed Work</option>
-            <option>Shrub &amp; Bush Trimming</option><option>Full Season Contract</option>
-            <option>One-Time Service</option><option>Multiple Services</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Approximate Yard Size</label>
-          <select class="form-select">
-            <option value="" disabled selected>Select size...</option>
-            <option>Small (under ¼ acre)</option><option>Medium (¼ – ½ acre)</option>
-            <option>Large (½ – 1 acre)</option><option>Very Large (1+ acre)</option>
-          </select>
-        </div>
-        <div class="form-group full"><label class="form-label">Tell Us More About What You Need</label><textarea class="form-textarea" placeholder="Any specific requests, problem areas, or things you want done? Let us know..."></textarea></div>
-      </div>
-      <div class="form-submit-row">
-        <span class="form-note">We'll respond within a few hours — usually same day.</span>
-        <button class="btn-submit" onclick="submitForm(this)">Submit Quote Request →</button>
-      </div>
+    <div class="form-submit-row">
+      <span class="form-note">We'll respond within a few hours — usually same day.</span>
+      <button class="btn-submit" onclick="submitForm(this)">Submit Quote Request →</button>
     </div>
-
-    <!-- PLOWING FORM -->
-    <div class="form-panel" id="form-plowing">
-      <div class="form-grid">
-        <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Brian Smith"></div>
-        <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(269) 555-0000"></div>
-        <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@email.com"></div>
-        <div class="form-group"><label class="form-label">Address to be Plowed</label><input class="form-input" type="text" placeholder="123 Main St, St. Joseph, MI"></div>
-        <div class="form-group">
-          <label class="form-label">Property Type</label>
-          <select class="form-select">
-            <option value="" disabled selected>Select type...</option>
-            <option>Residential Driveway</option><option>Commercial Parking Lot</option>
-            <option>Business Entrance</option><option>HOA / Community</option><option>Multiple Properties</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Approximate Area Size</label>
-          <select class="form-select">
-            <option value="" disabled selected>Select size...</option>
-            <option>Single driveway (small)</option><option>Large driveway / 2-car+</option>
-            <option>Small lot (under 5,000 sq ft)</option><option>Medium lot (5,000–20,000 sq ft)</option><option>Large lot (20,000+ sq ft)</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Preferred Contract Type</label>
-          <select class="form-select">
-            <option value="" disabled selected>Select contract...</option>
-            <option>Seasonal Contract (flat rate all winter)</option>
-            <option>Per-Push (pay each time)</option><option>Not sure yet</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Salt / Ice Treatment Needed?</label>
-          <select class="form-select">
-            <option value="" disabled selected>Select...</option>
-            <option>Yes, include salting</option><option>No, plowing only</option><option>Not sure yet</option>
-          </select>
-        </div>
-        <div class="form-group full"><label class="form-label">Anything Else We Should Know?</label><textarea class="form-textarea" placeholder="Access codes, tight spaces, specific times you need it done by, etc."></textarea></div>
-      </div>
-      <div class="form-submit-row">
-        <span class="form-note">We'll respond within a few hours — usually same day.</span>
-        <button class="btn-submit" onclick="submitForm(this)">Submit Quote Request →</button>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -673,25 +682,27 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
           textLength="88" lengthAdjust="spacingAndGlyphs">AN</text>
       </svg>
       <div class="footer-logo-name">DWAN SERVICES</div>
-      <div class="footer-logo-sub">Michigan &amp; Illinois</div>
-      <p class="footer-desc">Serving Southwest Michigan and Chicagoland with concrete coatings, landscaping, and snow removal year-round.</p>
+      <div class="footer-logo-sub">Concrete Coatings</div>
+      <p class="footer-desc">Serving Southwest Michigan and Chicagoland with premium epoxy and polyurea concrete floor coatings.</p>
     </div>
     <div>
       <div class="footer-col-head">Services</div>
       <ul class="footer-list">
-        <li><a href="concrete.html">Concrete Coatings</a></li>
-        <li><a href="landscaping.html">Landscaping</a></li>
-        <li><a href="plowing.html">Snow Plowing</a></li>
+        <li><a href="#services">Epoxy Floors</a></li>
+        <li><a href="#services">Polyurea Coatings</a></li>
+        <li><a href="#services">Garage Floors</a></li>
+        <li><a href="#services">Basement Floors</a></li>
+        <li><a href="#services">Commercial Spaces</a></li>
         <li><a href="#quote">Free Estimate</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-col-head">Coverage</div>
       <ul class="footer-list">
-        <li><a href="#">St. Joseph, MI</a></li>
-        <li><a href="#">Benton Harbor, MI</a></li>
-        <li><a href="#">SW Michigan</a></li>
-        <li><a href="#">Cook County, IL</a></li>
+        <li><a href="#areas">St. Joseph, MI</a></li>
+        <li><a href="#areas">Benton Harbor, MI</a></li>
+        <li><a href="#areas">SW Michigan</a></li>
+        <li><a href="#areas">Cook County, IL</a></li>
       </ul>
     </div>
     <div>
@@ -719,14 +730,6 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
-
-  function switchTab(service, el) {
-    document.querySelectorAll('.service-tab').forEach(function(t) { t.classList.remove('active'); });
-    document.querySelectorAll('.form-panel').forEach(function(p) { p.classList.remove('active'); });
-    el.classList.add('active');
-    var panel = document.getElementById('form-' + service);
-    if (panel) panel.classList.add('active');
-  }
 
   function submitForm(btn) {
     btn.textContent = '✓ Sent! We\'ll be in touch soon.';
