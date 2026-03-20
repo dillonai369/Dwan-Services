@@ -207,8 +207,9 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
   /* Service cards: full width, no max-width cap */
   .hero-services { max-width: 100%; }
 
-  /* Hero title slightly smaller */
-  .hero-title { font-size: clamp(46px, 12vw, 72px); }
+  /* Hero title: scale with viewport, strip letter-spacing so SERVICES never clips */
+  .hero-title { font-size: clamp(36px, 10vw, 72px); letter-spacing: 0px; }
+  .hero-title .outline { -webkit-text-stroke: 1.5px rgba(255,255,255,0.48); }
 
   /* Why section pills wrap nicely */
   .why-pills { gap: 6px; }
