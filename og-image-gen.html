@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head><title>Dwan OG Image Generator</title></head>
+<body style="margin:0;background:#111;">
+<canvas id="c" width="1200" height="630" style="display:block;max-width:100%;"></canvas>
+<p style="color:#666;font-family:sans-serif;padding:12px;font-size:13px;">Auto-downloads as og-image.png — add it to your dwan-services folder then push to GitHub.</p>
+<script>
+const c = document.getElementById('c');
+const ctx = c.getContext('2d');
+
+// Background
+ctx.fillStyle = '#0a0a0a';
+ctx.fillRect(0, 0, 1200, 630);
+
+// Subtle orange radial glow top-right
+const gr = ctx.createRadialGradient(1050, 80, 0, 1050, 80, 420);
+gr.addColorStop(0, 'rgba(232,104,26,0.22)');
+gr.addColorStop(1, 'rgba(0,0,0,0)');
+ctx.fillStyle = gr;
+ctx.fillRect(0, 0, 1200, 630);
+
+// Subtle warm glow bottom-left
+const gl = ctx.createRadialGradient(120, 550, 0, 120, 550, 300);
+gl.addColorStop(0, 'rgba(232,104,26,0.12)');
+gl.addColorStop(1, 'rgba(0,0,0,0)');
+ctx.fillStyle = gl;
+ctx.fillRect(0, 0, 1200, 630);
+
+// Top border line
+const border = ctx.createLinearGradient(0, 0, 1200, 0);
+border.addColorStop(0, 'rgba(232,104,26,0)');
+border.addColorStop(0.3, 'rgba(232,104,26,0.6)');
+border.addColorStop(0.7, 'rgba(232,104,26,0.6)');
+border.addColorStop(1, 'rgba(232,104,26,0)');
+ctx.strokeStyle = border;
+ctx.lineWidth = 2;
+ctx.beginPath(); ctx.moveTo(0, 1); ctx.lineTo(1200, 1); ctx.stroke();
+
+// Bottom border line
+ctx.beginPath(); ctx.moveTo(0, 629); ctx.lineTo(1200, 629); ctx.stroke();
+
+// DWAN logo square (left side)
+const lx = 88, ly = 168, sz = 110;
+// Gradient square
+const lgSq = ctx.createLinearGradient(lx, ly, lx, ly + sz);
+lgSq.addColorStop(0, '#cecece');
+lgSq.addColorStop(0.5, '#a0a0a0');
+lgSq.addColorStop(1, '#686868');
+ctx.fillStyle = lgSq;
+ctx.beginPath();
+ctx.roundRect(lx, ly, sz, sz, 10);
+ctx.fill();
+// Divider line
+ctx.strokeStyle = 'rgba(0,0,0,0.2)';
+ctx.lineWidth = 1;
+ctx.beginPath(); ctx.moveTo(lx+8, ly+sz/2); ctx.lineTo(lx+sz-8, ly+sz/2); ctx.stroke();
+// DW text
+ctx.fillStyle = '#ffffff';
+ctx.font = '900 54px Impact, Arial Black, sans-serif';
+ctx.textAlign = 'center';
+ctx.fillText('DW', lx + sz/2, ly + 44);
+// AN text
+ctx.fillStyle = '#0d0d0d';
+ctx.fillText('AN', lx + sz/2, ly + 96);
+
+// DWAN SERVICES wordmark
+ctx.textAlign = 'left';
+ctx.fillStyle = '#F4F4F4';
+ctx.font = '700 82px Helvetica Neue, Arial, sans-serif';
+ctx.fillText('DWAN', 88, 370);
+ctx.fillStyle = 'rgba(244,244,244,0.35)';
+ctx.font = '300 82px Helvetica Neue, Arial, sans-serif';
+ctx.fillText('SERVICES', 88, 460);
+
+// Tagline
+ctx.fillStyle = 'rgba(244,244,244,0.45)';
+ctx.font = '400 24px Helvetica Neue, Arial, sans-serif';
+ctx.fillText('Michigan & Illinois  ·  Concrete · Landscaping · Snow Plowing', 88, 512);
+
+// Orange accent line under DWAN
+ctx.strokeStyle = '#E8681A';
+ctx.lineWidth = 3;
+ctx.beginPath(); ctx.moveTo(88, 385); ctx.lineTo(420, 385); ctx.stroke();
+
+// Right side — service cards
+const cards = [
+  { label: 'Concrete Coatings', sub: 'Epoxy & Polyurea Systems', color: 'rgba(232,104,26,0.85)' },
+  { label: 'Landscaping', sub: 'Full-Season Lawn Care', color: 'rgba(34,197,94,0.75)' },
+  { label: 'Snow Plowing', sub: 'Seasonal Contracts', color: 'rgba(99,179,237,0.80)' },
+];
+cards.forEach((card, i) => {
+  const cx = 720, cy = 168 + i * 140;
+  const w = 392, h = 116;
+  // Card bg
+  ctx.fillStyle = 'rgba(255,255,255,0.04)';
+  ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+  ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.roundRect(cx, cy, w, h, 10); ctx.fill(); ctx.stroke();
+  // Left color bar
+  ctx.fillStyle = card.color;
+  ctx.beginPath(); ctx.roundRect(cx, cy, 4, h, [10, 0, 0, 10]); ctx.fill();
+  // Label
+  ctx.fillStyle = 'rgba(244,244,244,0.92)';
+  ctx.font = '700 22px Helvetica Neue, Arial, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText(card.label, cx + 28, cy + 44);
+  // Sub
+  ctx.fillStyle = 'rgba(244,244,244,0.42)';
+  ctx.font = '400 16px Helvetica Neue, Arial, sans-serif';
+  ctx.fillText(card.sub, cx + 28, cy + 72);
+  // Arrow
+  ctx.fillStyle = card.color;
+  ctx.font = '600 18px Helvetica Neue, Arial, sans-serif';
+  ctx.textAlign = 'right';
+  ctx.fillText('→', cx + w - 24, cy + 58);
+});
+
+// Domain
+ctx.textAlign = 'left';
+ctx.fillStyle = 'rgba(232,104,26,0.55)';
+ctx.font = '400 20px Helvetica Neue, Arial, sans-serif';
+ctx.fillText('dwanservices.com', 88, 575);
+
+// Auto-download
+setTimeout(() => {
+  const a = document.createElement('a');
+  a.download = 'og-image.png';
+  a.href = c.toDataURL('image/png');
+  a.click();
+}, 500);
+</script>
+</body>
+</html>
