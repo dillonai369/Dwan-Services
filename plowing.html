@@ -151,7 +151,18 @@ footer { background: #060606; padding: 64px 5% 28px; border-top: 1px solid rgba(
 
 <nav>
   <a href="index.html" class="nav-logo">
-    <div class="logo-box"><span class="dw">DW</span><span class="an">AN</span></div>
+    <svg width="48" height="48" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;filter:drop-shadow(0 0 10px rgba(232,104,26,0.4)) drop-shadow(0 2px 6px rgba(0,0,0,0.8));">
+      <defs>
+        <linearGradient id="lg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#d4d4d4"/>
+          <stop offset="45%" stop-color="#aaaaaa"/>
+          <stop offset="100%" stop-color="#6e6e6e"/>
+        </linearGradient>
+      </defs>
+      <rect width="100" height="100" fill="url(#lg)"/>
+      <text x="50" y="50" text-anchor="middle" dominant-baseline="middle" font-family="'Bebas Neue', Impact, 'Arial Black', sans-serif" font-size="48" font-weight="900" fill="#ffffff" textLength="92" lengthAdjust="spacingAndGlyphs">DW</text>
+      <text x="50" y="85" text-anchor="middle" dominant-baseline="middle" font-family="'Bebas Neue', Impact, 'Arial Black', sans-serif" font-size="48" font-weight="900" fill="#0a0a0a" textLength="92" lengthAdjust="spacingAndGlyphs">AN</text>
+    </svg>
     <div><div class="nav-name">Dwan Services</div><span class="nav-sub">Michigan &amp; Illinois</span></div>
   </a>
   <ul class="nav-links">
