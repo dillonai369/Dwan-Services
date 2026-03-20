@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concrete Coatings | Dwan Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --orange: #E8681A; --orange-bright: #FF7A20;
+  --black: #080808; --dark: #111111; --dark2: #191919; --dark3: #232323;
+  --silver: #909090; --silver-light: #C8C8C8; --white: #F4F4F4;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; overflow-x: hidden; }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 74px; background: rgba(8,8,8,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(232,104,26,0.12); }
+.nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.logo-box { width: 46px; height: 46px; background: linear-gradient(160deg, #b8b8b8, #707070); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; line-height: 1; }
+.logo-box .dw { color: #fff; font-size: 18px; }
+.logo-box .an { color: #111; font-size: 18px; }
+.nav-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 19px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--white); }
+.nav-sub { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); font-weight: 600; display: block; margin-top: 1px; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { text-decoration: none; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; color: var(--silver-light); transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--orange); }
+.nav-cta { background: var(--orange) !important; color: var(--black) !important; padding: 10px 24px; border-radius: 4px; font-weight: 700 !important; }
+
+/* PAGE HERO */
+.page-hero {
+  min-height: 90vh; position: relative; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 5% 80px;
+}
+.page-hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=80');
+  background-size: cover; background-position: center;
+  filter: brightness(0.35) saturate(0.6);
+}
+.page-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(8,8,8,0.4) 0%, transparent 40%, rgba(8,8,8,0.9) 75%, var(--black) 100%),
+              radial-gradient(ellipse 50% 60% at 80% 10%, rgba(232,104,26,0.25) 0%, transparent 60%);
+}
+.page-hero-content { position: relative; z-index: 2; max-width: 800px; }
+.breadcrumb { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
+.breadcrumb a { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--silver); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+.breadcrumb a:hover { color: var(--orange); }
+.breadcrumb-sep { color: var(--orange); font-size: 10px; }
+.breadcrumb-current { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); font-weight: 600; }
+.page-service-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(232,104,26,0.12); border: 1px solid rgba(232,104,26,0.3); color: var(--orange); font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 7px 16px; border-radius: 100px; margin-bottom: 22px; }
+.page-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(70px, 11vw, 130px); line-height: 0.88; letter-spacing: 2px; color: var(--white); margin-bottom: 12px; }
+.page-title .outline { -webkit-text-stroke: 3px rgba(255,255,255,0.5); color: transparent; }
+.page-tagline { font-size: 18px; font-weight: 300; color: var(--silver-light); margin-bottom: 36px; line-height: 1.6; max-width: 540px; }
+.btn-primary { display: inline-flex; align-items: center; gap: 10px; background: var(--orange); color: var(--black); padding: 15px 36px; border-radius: 4px; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border: 2px solid var(--orange); transition: all 0.25s; }
+.btn-primary:hover { background: transparent; color: var(--orange); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--white); padding: 15px 36px; border-radius: 4px; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border: 2px solid rgba(255,255,255,0.18); transition: all 0.25s; }
+.btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+
+/* TICKER */
+.ticker-wrap { background: var(--orange); overflow: hidden; }
+.ticker { display: flex; animation: tick 20s linear infinite; white-space: nowrap; }
+.ticker-item { display: flex; align-items: center; gap: 18px; padding: 13px 32px; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--black); flex-shrink: 0; }
+.ticker-dot { width: 5px; height: 5px; background: rgba(0,0,0,0.3); border-radius: 50%; }
+@keyframes tick { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* SECTIONS */
+section { padding: 100px 5%; }
+.eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.eyebrow-line { width: 30px; height: 2px; background: var(--orange); }
+.eyebrow-label { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; color: var(--orange); }
+.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 7vw, 84px); line-height: 0.93; letter-spacing: 2px; color: var(--white); margin-bottom: 20px; }
+.section-title .out { -webkit-text-stroke: 2px rgba(255,255,255,0.25); color: transparent; }
+
+/* PROCESS */
+.process-section { background: var(--dark); }
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 56px; }
+.process-step { background: var(--dark2); padding: 40px 28px; position: relative; overflow: hidden; transition: background 0.3s; }
+.process-step:hover { background: var(--dark3); }
+.process-step::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform 0.4s; }
+.process-step:hover::after { transform: scaleX(1); }
+.step-num { font-family: 'Bebas Neue', sans-serif; font-size: 64px; color: rgba(232,104,26,0.1); line-height: 1; margin-bottom: 12px; }
+.step-title { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--white); margin-bottom: 10px; }
+.step-desc { font-size: 13px; font-weight: 300; line-height: 1.65; color: var(--silver); }
+
+/* COATINGS OPTIONS */
+.coatings-section { background: var(--black); }
+.coatings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 52px; }
+.coating-card { background: var(--dark2); border: 1px solid rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; transition: transform 0.3s, border-color 0.3s; }
+.coating-card:hover { transform: translateY(-4px); border-color: rgba(232,104,26,0.3); }
+.coating-card-img { width: 100%; height: 220px; object-fit: cover; filter: brightness(0.7) saturate(0.8); transition: filter 0.4s; }
+.coating-card:hover .coating-card-img { filter: brightness(0.85) saturate(1); }
+.coating-card-body { padding: 28px 28px 32px; }
+.coating-tag { display: inline-block; background: rgba(232,104,26,0.12); color: var(--orange); font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; margin-bottom: 12px; }
+.coating-name { font-family: 'Bebas Neue', sans-serif; font-size: 34px; letter-spacing: 2px; color: var(--white); margin-bottom: 10px; }
+.coating-desc { font-size: 14px; font-weight: 300; line-height: 1.7; color: var(--silver); margin-bottom: 18px; }
+.coating-features { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.coating-features li { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--silver-light); }
+.coating-features li::before { content: ''; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; flex-shrink: 0; }
+
+/* PHOTO GALLERY */
+.gallery-section { background: var(--dark); padding: 0; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: 300px 300px; gap: 4px; }
+.gallery-cell { overflow: hidden; position: relative; }
+.gallery-cell.tall { grid-row: 1 / 3; }
+.gallery-cell img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.7); transition: transform 0.6s, filter 0.4s; }
+.gallery-cell:hover img { transform: scale(1.06); filter: brightness(0.9); }
+.gallery-label { position: absolute; bottom: 16px; left: 16px; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); background: rgba(0,0,0,0.75); padding: 5px 12px; border-radius: 3px; }
+
+/* CTA BAND */
+.cta-band { background: var(--orange); padding: 72px 5%; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.cta-band h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 6vw, 72px); color: var(--black); line-height: 0.9; letter-spacing: 2px; margin-bottom: 10px; }
+.cta-band p { font-size: 15px; color: rgba(0,0,0,0.6); max-width: 380px; }
+.cta-right { display: flex; flex-direction: column; gap: 12px; }
+.cta-phone { font-family: 'Bebas Neue', sans-serif; font-size: 42px; letter-spacing: 2px; color: var(--black); text-decoration: none; }
+.btn-dark { display: inline-flex; align-items: center; gap: 10px; background: var(--black); color: var(--white); padding: 15px 32px; border-radius: 4px; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; transition: background 0.2s; }
+.btn-dark:hover { background: #222; }
+
+/* OTHER SERVICES */
+.other-services { background: var(--black); padding: 80px 5%; }
+.other-services-head { text-align: center; margin-bottom: 44px; }
+.other-services-head h2 { font-family: 'Bebas Neue', sans-serif; font-size: 52px; letter-spacing: 2px; color: var(--white); }
+.other-services-head p { font-size: 15px; color: var(--silver); margin-top: 8px; }
+.other-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.other-card { display: flex; align-items: center; gap: 20px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 28px 28px; text-decoration: none; transition: all 0.3s; }
+.other-card:hover { border-color: var(--orange); transform: translateY(-3px); }
+.other-icon { font-size: 32px; flex-shrink: 0; }
+.other-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); font-weight: 600; margin-bottom: 4px; }
+.other-name { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; color: var(--white); }
+.other-arrow { margin-left: auto; font-size: 18px; color: var(--orange); opacity: 0; transform: translateX(-6px); transition: all 0.3s; }
+.other-card:hover .other-arrow { opacity: 1; transform: translateX(0); }
+
+/* FOOTER */
+footer { background: #060606; padding: 64px 5% 28px; border-top: 1px solid rgba(232,104,26,0.1); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+.footer-logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 3px; color: var(--white); margin: 14px 0 4px; }
+.footer-logo-sub { font-size: 10px; letter-spacing: 3px; color: var(--orange); font-weight: 600; text-transform: uppercase; margin-bottom: 14px; }
+.footer-desc { font-size: 13px; font-weight: 300; line-height: 1.7; color: var(--silver); max-width: 260px; }
+.footer-col-head { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 18px; }
+.footer-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-list a { text-decoration: none; font-size: 13px; font-weight: 300; color: var(--silver); transition: color 0.2s; }
+.footer-list a:hover { color: var(--orange); }
+.fc-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--silver); }
+.fc-val { font-size: 13px; color: var(--white); margin-bottom: 10px; }
+.fc-val a { color: var(--orange); text-decoration: none; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.04); flex-wrap: wrap; gap: 10px; }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.25); }
+.footer-bottom a { font-size: 11px; color: rgba(255,255,255,0.25); text-decoration: none; margin-left: 20px; }
+.footer-bottom a:hover { color: var(--orange); }
+
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 960px) {
+  .process-grid { grid-template-columns: 1fr 1fr; }
+  .coatings-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .gallery-cell.tall { grid-row: auto; grid-column: 1 / 3; height: 280px; }
+  .gallery-cell { height: 220px; }
+  .other-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="logo-box"><span class="dw">DW</span><span class="an">AN</span></div>
+    <div><div class="nav-name">Dwan Services</div><span class="nav-sub">Michigan &amp; Illinois</span></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="concrete.html" class="active">Concrete Coatings</a></li>
+    <li><a href="landscaping.html">Landscaping</a></li>
+    <li><a href="plowing.html">Snow Plowing</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <span class="breadcrumb-current">Concrete Coatings</span>
+    </div>
+    <div class="page-service-tag">⬡ Service 01</div>
+    <h1 class="page-title">CONCRETE<br><span class="outline">COATINGS</span></h1>
+    <p class="page-tagline">Premium epoxy and polyurea floor systems that transform garages, basements, driveways, and commercial spaces into surfaces that last a lifetime.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="index.html#contact" class="btn-primary">Get a Free Quote →</a>
+      <a href="tel:2692084383" class="btn-ghost">📞 269.208.4383</a>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item">Epoxy Floors<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Polyurea Coating<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Garage Floors<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Basement Floors<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Commercial Floors<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Chip Systems<span class="ticker-dot"></span></span>
+    <span class="ticker-item">UV Resistant<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Chemical Resistant<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Epoxy Floors<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Polyurea Coating<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Garage Floors<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Basement Floors<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Commercial Floors<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Chip Systems<span class="ticker-dot"></span></span>
+    <span class="ticker-item">UV Resistant<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Chemical Resistant<span class="ticker-dot"></span></span>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-label">How It Works</span></div>
+  <h2 class="section-title">OUR<br><span class="out">PROCESS</span></h2>
+  <div class="process-grid">
+    <div class="process-step fade-up">
+      <div class="step-num">01</div>
+      <div class="step-title">Free Consultation</div>
+      <p class="step-desc">We come to you, assess your floor, discuss coating options, and give you a straight quote — no obligation.</p>
+    </div>
+    <div class="process-step fade-up" style="transition-delay:.1s">
+      <div class="step-num">02</div>
+      <div class="step-title">Surface Prep</div>
+      <p class="step-desc">Professional diamond grinding and crack repair ensures maximum adhesion. Prep is everything — we never skip it.</p>
+    </div>
+    <div class="process-step fade-up" style="transition-delay:.2s">
+      <div class="step-num">03</div>
+      <div class="step-title">Coating Application</div>
+      <p class="step-desc">Base coat, broadcast chips or solid color, and a high-build topcoat applied by our experienced crew.</p>
+    </div>
+    <div class="process-step fade-up" style="transition-delay:.3s">
+      <div class="step-num">04</div>
+      <div class="step-title">Final Inspection</div>
+      <p class="step-desc">We walk the floor with you before we pack up. You're not happy until we're happy — that's the Dwan standard.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COATING OPTIONS -->
+<section class="coatings-section">
+  <div class="eyebrow"><div class="eyebrow-line"></div><span class="eyebrow-label">Coating Systems</span></div>
+  <h2 class="section-title">CHOOSE YOUR<br><span class="out">FINISH</span></h2>
+  <div class="coatings-grid">
+    <div class="coating-card fade-up">
+      <img class="coating-card-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Epoxy Chip System">
+      <div class="coating-card-body">
+        <span class="coating-tag">Most Popular</span>
+        <div class="coating-name">Chip Broadcast System</div>
+        <p class="coating-desc">Color flake chips scattered over a base coat then sealed with a durable polyurea topcoat. Hides imperfections, adds texture, and looks incredible.</p>
+        <ul class="coating-features">
+          <li>Dozens of color combinations</li>
+          <li>Non-slip texture surface</li>
+          <li>Resistant to stains &amp; chemicals</li>
+          <li>Fast cure — back to normal in 24hrs</li>
+        </ul>
+      </div>
+    </div>
+    <div class="coating-card fade-up" style="transition-delay:.15s">
+      <img class="coating-card-img" src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=800&q=80" alt="Solid Color Epoxy">
+      <div class="coating-card-body">
+        <span class="coating-tag">Clean &amp; Modern</span>
+        <div class="coating-name">Solid Color Epoxy</div>
+        <p class="coating-desc">A smooth, seamless high-gloss finish in any solid color. Perfect for showrooms, commercial spaces, and homeowners who want a clean modern look.</p>
+        <ul class="coating-features">
+          <li>High-gloss showroom finish</li>
+          <li>Seamless &amp; easy to clean</li>
+          <li>Custom color matching</li>
+          <li>Ideal for commercial use</li>
+        </ul>
+      </div>
+    </div>
+    <div class="coating-card fade-up" style="transition-delay:.2s">
+      <img class="coating-card-img" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Metallic Epoxy">
+      <div class="coating-card-body">
+        <span class="coating-tag">Premium</span>
+        <div class="coating-name">Metallic Epoxy</div>
+        <p class="coating-desc">A stunning, one-of-a-kind floor with a liquid-metal appearance. Every metallic floor is unique — no two look the same.</p>
+        <ul class="coating-features">
+          <li>Unique one-of-a-kind appearance</li>
+          <li>Deep, 3D metallic effect</li>
+          <li>Extremely durable topcoat</li>
+          <li>Perfect for bars, restaurants, homes</li>
+        </ul>
+      </div>
+    </div>
+    <div class="coating-card fade-up" style="transition-delay:.3s">
+      <img class="coating-card-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Commercial Coating">
+      <div class="coating-card-body">
+        <span class="coating-tag">Heavy Duty</span>
+        <div class="coating-name">Commercial &amp; Industrial</div>
+        <p class="coating-desc">Built for warehouses, auto shops, and high-traffic commercial spaces. Thick-build systems that handle heavy equipment, forklifts, and constant foot traffic.</p>
+        <ul class="coating-features">
+          <li>Heavy-traffic rated systems</li>
+          <li>Forklift and vehicle safe</li>
+          <li>OSHA-compliant options</li>
+          <li>Fast-turnaround scheduling</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<div class="gallery-section">
+  <div class="gallery-grid">
+    <div class="gallery-cell tall">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80" alt="Garage floor coating">
+      <div class="gallery-label">Garage Floor</div>
+    </div>
+    <div class="gallery-cell">
+      <img src="https://images.unsplash.com/photo-1562259929-b4e1fd3aef09?w=600&q=80" alt="Epoxy floor">
+      <div class="gallery-label">Epoxy System</div>
+    </div>
+    <div class="gallery-cell">
+      <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Commercial floor">
+      <div class="gallery-label">Commercial</div>
+    </div>
+    <div class="gallery-cell">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Basement floor">
+      <div class="gallery-label">Basement</div>
+    </div>
+    <div class="gallery-cell">
+      <img src="https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=600&q=80" alt="Chip system">
+      <div class="gallery-label">Chip Broadcast</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div>
+    <h2>READY FOR A<br>NEW FLOOR?</h2>
+    <p>Call Brian for a free on-site estimate. We'll assess your floor and give you a straight price — same day.</p>
+  </div>
+  <div class="cta-right">
+    <a href="tel:2692084383" class="cta-phone">269.208.4383</a>
+    <a href="mailto:dwancoatings@gmail.com" class="btn-dark">Email Us →</a>
+  </div>
+</div>
+
+<!-- OTHER SERVICES -->
+<section class="other-services">
+  <div class="other-services-head">
+    <h2>OTHER SERVICES</h2>
+    <p>Dwan Services does it all — year-round.</p>
+  </div>
+  <div class="other-grid">
+    <a href="landscaping.html" class="other-card">
+      <span class="other-icon">◈</span>
+      <div><div class="other-label">Service 02</div><div class="other-name">Landscaping &amp; Lawn Care</div></div>
+      <span class="other-arrow">→</span>
+    </a>
+    <a href="plowing.html" class="other-card">
+      <span class="other-icon">❄</span>
+      <div><div class="other-label">Service 03</div><div class="other-name">Snow Plowing</div></div>
+      <span class="other-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="logo-box" style="width:50px;height:50px;"><span class="dw" style="font-size:20px;">DW</span><span class="an" style="font-size:20px;">AN</span></div>
+      <div class="footer-logo-name">DWAN SERVICES</div>
+      <div class="footer-logo-sub">Michigan &amp; Illinois</div>
+      <p class="footer-desc">Premium concrete coatings, professional landscaping, and dependable snow removal serving SW Michigan and Chicagoland.</p>
+    </div>
+    <div>
+      <div class="footer-col-head">Services</div>
+      <ul class="footer-list"><li><a href="concrete.html">Concrete Coatings</a></li><li><a href="landscaping.html">Landscaping</a></li><li><a href="plowing.html">Snow Plowing</a></li><li><a href="index.html#contact">Free Estimate</a></li></ul>
+    </div>
+    <div>
+      <div class="footer-col-head">Coverage</div>
+      <ul class="footer-list"><li><a href="#">St. Joseph, MI</a></li><li><a href="#">Benton Harbor, MI</a></li><li><a href="#">SW Michigan</a></li><li><a href="#">Cook County, IL</a></li></ul>
+    </div>
+    <div>
+      <div class="footer-col-head">Contact</div>
+      <div class="fc-label">Phone</div><div class="fc-val"><a href="tel:2692084383">269.208.4383</a></div>
+      <div class="fc-label">Email</div><div class="fc-val"><a href="mailto:dwancoatings@gmail.com">dwancoatings@gmail.com</a></div>
+      <div class="fc-label">Address</div><div class="fc-val" style="color:var(--silver)">5600 E. Napier Ave.<br>Benton Harbor, MI 49022</div>
+    </div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copy">© 2025 Dwan Services · All Rights Reserved</span><div><a href="#">Privacy</a><a href="#">Terms</a></div></div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(e => e.forEach(x => x.isIntersecting && x.target.classList.add('visible')), { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

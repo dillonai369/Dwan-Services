@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dwan Services | Concrete Coatings · Landscaping · Snow Plowing</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --orange: #E8681A; --orange-bright: #FF7A20;
+  --black: #080808; --dark: #111111; --dark2: #171717; --dark3: #202020;
+  --silver: #888; --silver-light: #C0C0C0; --white: #F4F4F4;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--black); color: var(--white); font-family: 'Barlow', sans-serif; overflow-x: hidden; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 66px; background: rgba(8,8,8,0.94); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(232,104,26,0.1); }
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo-svg { width: 48px; height: 48px; flex-shrink: 0; filter: drop-shadow(0 0 10px rgba(232,104,26,0.4)) drop-shadow(0 2px 6px rgba(0,0,0,0.8)); }
+.nav-brand { display: flex; flex-direction: column; }
+.nav-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 3px; text-transform: uppercase; color: var(--white); }
+.nav-sub { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); font-weight: 600; }
+.nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+.nav-links a { text-decoration: none; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; color: var(--silver-light); transition: color 0.2s; }
+.nav-links a:hover { color: var(--orange); }
+.nav-cta { background: var(--orange) !important; color: var(--black) !important; padding: 8px 18px; border-radius: 4px; font-weight: 700 !important; transition: background 0.2s !important; }
+.nav-cta:hover { background: var(--orange-bright) !important; }
+
+/* HERO */
+.hero { height: 100vh; min-height: 640px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding: 66px 5% 0; }
+.hero-photo { position: absolute; inset: 0; z-index: 0; background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=80'); background-size: cover; background-position: center 40%; filter: brightness(0.32) saturate(0.55); transform: scale(1.04); transition: transform 8s ease-out; }
+.hero-photo.loaded { transform: scale(1); }
+.hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(8,8,8,0.55) 0%, rgba(8,8,8,0.05) 28%, rgba(8,8,8,0.82) 78%, rgba(8,8,8,1) 100%), radial-gradient(ellipse 50% 60% at 82% 12%, rgba(232,104,26,0.22) 0%, transparent 65%); }
+.hero-content { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; gap: 14px; }
+.hero-eyebrow { display: flex; align-items: center; gap: 10px; }
+.eyebrow-line { width: 30px; height: 2px; background: var(--orange); flex-shrink: 0; }
+.eyebrow-text { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; color: var(--orange); }
+.hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(54px, 8.8vw, 104px); line-height: 0.87; letter-spacing: 3px; color: var(--white); }
+.hero-title .outline { -webkit-text-stroke: 2px rgba(255,255,255,0.48); color: transparent; }
+.hero-sub { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(12px, 1.5vw, 17px); font-weight: 400; letter-spacing: 6px; text-transform: uppercase; color: var(--silver-light); }
+.hero-sub span { color: var(--orange); }
+
+/* SERVICE CARDS */
+.hero-services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.service-btn { display: flex; flex-direction: column; padding: 20px 20px 18px; background: rgba(10,10,10,0.82); border: 1px solid rgba(232,104,26,0.18); border-radius: 8px; text-decoration: none; backdrop-filter: blur(14px); transition: all 0.3s; position: relative; overflow: hidden; box-shadow: inset 0 0 40px rgba(232,104,26,0.04); }
+.service-btn::before { content: ''; position: absolute; inset: 0; border-radius: 8px; background: radial-gradient(ellipse 80% 55% at 50% 120%, rgba(232,104,26,0.2) 0%, transparent 65%); pointer-events: none; }
+.service-btn::after { content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 1px; background: linear-gradient(90deg, transparent, rgba(232,104,26,0.55), transparent); }
+.service-btn:hover { border-color: rgba(232,104,26,0.5); transform: translateY(-4px); background: rgba(16,16,16,0.92); box-shadow: 0 8px 32px rgba(232,104,26,0.16), inset 0 0 60px rgba(232,104,26,0.07); }
+.service-btn:hover .sb-arrow { transform: translateX(5px); }
+.sb-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px; }
+.sb-icon-wrap { width: 38px; height: 38px; background: #242424; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.07); flex-shrink: 0; }
+.sb-num { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: rgba(232,104,26,0.55); font-weight: 600; margin-top: 4px; }
+.sb-name { font-family: 'Bebas Neue', sans-serif; font-size: clamp(20px, 2.1vw, 26px); letter-spacing: 2px; color: var(--white); line-height: 1; margin-bottom: 8px; }
+.sb-desc { font-size: 12px; font-weight: 300; color: var(--silver); line-height: 1.55; margin-bottom: 14px; flex: 1; }
+.sb-arrow { font-size: 10px; letter-spacing: 2.5px; font-weight: 700; color: var(--orange); transition: transform 0.3s; font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; }
+.hero-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--orange); color: var(--black); padding: 11px 26px; border-radius: 4px; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; border: 2px solid var(--orange); transition: all 0.25s; }
+.btn-primary:hover { background: transparent; color: var(--orange); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--white); padding: 11px 26px; border-radius: 4px; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; border: 2px solid rgba(255,255,255,0.15); transition: all 0.25s; }
+.btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+
+/* TICKER */
+.ticker-wrap { background: var(--orange); overflow: hidden; }
+.ticker { display: flex; animation: tick 26s linear infinite; white-space: nowrap; }
+.ticker-item { display: flex; align-items: center; gap: 16px; padding: 11px 28px; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--black); flex-shrink: 0; }
+.ticker-dot { width: 4px; height: 4px; background: rgba(0,0,0,0.3); border-radius: 50%; }
+@keyframes tick { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* WHY */
+.why-section { background: var(--black); display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; padding: 100px 5%; }
+.why-cards { display: flex; flex-direction: column; gap: 10px; }
+.why-card { display: flex; align-items: flex-start; gap: 15px; background: var(--dark2); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 18px 20px; transition: border-color 0.3s, transform 0.3s; }
+.why-card:hover { border-color: rgba(232,104,26,0.35); transform: translateX(5px); }
+.why-icon { width: 36px; height: 36px; background: #222; border: 1px solid rgba(255,255,255,0.07); border-radius: 7px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.why-icon svg { width: 16px; height: 16px; }
+.why-card-title { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--white); margin-bottom: 3px; }
+.why-card-text { font-size: 12px; font-weight: 300; line-height: 1.6; color: var(--silver); }
+.why-pills { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 24px; }
+.pill { display: inline-flex; align-items: center; gap: 5px; background: rgba(232,104,26,0.08); border: 1px solid rgba(232,104,26,0.2); color: var(--orange); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; }
+.section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(42px, 6vw, 76px); line-height: 0.93; letter-spacing: 2px; color: var(--white); margin-bottom: 14px; }
+.section-title .out { -webkit-text-stroke: 2px rgba(255,255,255,0.22); color: transparent; }
+.eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.eyebrow-line2 { width: 24px; height: 2px; background: var(--orange); }
+.eyebrow-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; color: var(--orange); }
+
+/* COVERAGE */
+.coverage-section { background: var(--dark); padding: 100px 5%; }
+.coverage-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 68px; align-items: center; margin-top: 44px; }
+.areas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+.area-card { background: var(--dark2); border: 1px solid rgba(255,255,255,0.05); border-radius: 8px; padding: 20px 16px; transition: border-color 0.3s, transform 0.3s; }
+.area-card:hover { border-color: var(--orange); transform: translateY(-3px); }
+.area-state { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 5px; }
+.area-city { font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--white); }
+.area-note { font-size: 11px; color: var(--silver); margin-top: 3px; }
+
+/* FORM */
+.form-section { background: var(--black); padding: 100px 5%; }
+.form-section-inner { max-width: 860px; margin: 0 auto; }
+.form-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.form-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(44px, 6vw, 78px); line-height: 0.93; letter-spacing: 2px; color: var(--white); margin-bottom: 16px; }
+.form-title .out { -webkit-text-stroke: 2px rgba(255,255,255,0.22); color: transparent; }
+.form-subtitle { font-size: 15px; font-weight: 300; color: var(--silver-light); line-height: 1.7; margin-bottom: 44px; max-width: 520px; }
+.service-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 36px; }
+.service-tab { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 18px 12px; border-radius: 8px; cursor: pointer; background: var(--dark2); border: 2px solid rgba(255,255,255,0.06); transition: all 0.25s; }
+.service-tab:hover { border-color: rgba(232,104,26,0.35); }
+.service-tab.active { border-color: var(--orange); background: rgba(232,104,26,0.08); box-shadow: 0 0 20px rgba(232,104,26,0.12); }
+.tab-label { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--silver-light); }
+.service-tab.active .tab-label { color: var(--orange); }
+.form-panel { display: none; }
+.form-panel.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 7px; }
+.form-group.full { grid-column: 1 / -1; }
+.form-label { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; color: var(--orange); }
+.form-input, .form-select, .form-textarea { background: var(--dark2); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; color: var(--white); font-family: 'Barlow', sans-serif; font-size: 14px; font-weight: 300; padding: 12px 14px; outline: none; width: 100%; transition: border-color 0.2s, box-shadow 0.2s; }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: rgba(232,104,26,0.5); box-shadow: 0 0 0 3px rgba(232,104,26,0.08); }
+.form-input::placeholder, .form-textarea::placeholder { color: var(--silver); }
+.form-select { appearance: none; cursor: pointer; }
+.form-select option { background: #1a1a1a; color: var(--white); }
+.form-textarea { resize: vertical; min-height: 100px; }
+.upload-zone { border: 2px dashed rgba(232,104,26,0.25); border-radius: 8px; padding: 28px 20px; text-align: center; cursor: pointer; transition: all 0.25s; background: rgba(232,104,26,0.03); }
+.upload-zone:hover { border-color: rgba(232,104,26,0.5); background: rgba(232,104,26,0.06); }
+.upload-text { font-size: 13px; color: var(--silver); font-weight: 300; }
+.upload-text strong { color: var(--orange); font-weight: 600; }
+.upload-hint { font-size: 11px; color: var(--silver); margin-top: 4px; opacity: 0.7; }
+#fileInput { display: none; }
+#fileName { font-size: 12px; color: var(--orange); margin-top: 8px; }
+.form-submit-row { display: flex; align-items: center; justify-content: space-between; margin-top: 28px; flex-wrap: wrap; gap: 16px; }
+.form-note { font-size: 12px; font-weight: 300; color: var(--silver); }
+.btn-submit { display: inline-flex; align-items: center; gap: 10px; background: var(--orange); color: var(--black); padding: 14px 36px; border-radius: 5px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.25s; }
+.btn-submit:hover { background: var(--orange-bright); transform: translateY(-2px); }
+
+/* CTA */
+.cta-band { background: var(--orange); padding: 68px 5%; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.cta-band h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 5vw, 64px); color: var(--black); line-height: 0.9; letter-spacing: 2px; margin-bottom: 8px; }
+.cta-band p { font-size: 14px; color: rgba(0,0,0,0.56); max-width: 360px; }
+.cta-right { display: flex; flex-direction: column; gap: 11px; }
+.cta-phone { font-family: 'Bebas Neue', sans-serif; font-size: 38px; letter-spacing: 2px; color: var(--black); text-decoration: none; transition: opacity 0.2s; }
+.cta-phone:hover { opacity: 0.7; }
+.btn-dark { display: inline-flex; align-items: center; gap: 8px; background: var(--black); color: var(--white); padding: 13px 28px; border-radius: 4px; text-decoration: none; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; transition: background 0.2s; }
+.btn-dark:hover { background: #222; }
+
+/* FOOTER */
+footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(232,104,26,0.1); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 42px; margin-bottom: 40px; }
+.footer-logo-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 3px; color: var(--white); margin: 11px 0 3px; }
+.footer-logo-sub { font-size: 9px; letter-spacing: 3px; color: var(--orange); font-weight: 600; text-transform: uppercase; margin-bottom: 11px; }
+.footer-desc { font-size: 12px; font-weight: 300; line-height: 1.7; color: var(--silver); max-width: 240px; }
+.footer-col-head { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); font-weight: 700; margin-bottom: 14px; }
+.footer-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.footer-list a { text-decoration: none; font-size: 12px; font-weight: 300; color: var(--silver); transition: color 0.2s; }
+.footer-list a:hover { color: var(--orange); }
+.fc-label { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--silver); }
+.fc-val { font-size: 12px; color: var(--white); margin-bottom: 9px; }
+.fc-val a { color: var(--orange); text-decoration: none; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.04); flex-wrap: wrap; gap: 9px; }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.2); }
+.footer-bottom a { font-size: 11px; color: rgba(255,255,255,0.2); text-decoration: none; margin-left: 16px; }
+.footer-bottom a:hover { color: var(--orange); }
+
+.fade-up { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 1024px) { .sb-desc { font-size: 11px; } }
+@media (max-width: 860px) {
+  .hero-services { grid-template-columns: 1fr; max-width: 400px; }
+  .why-section { grid-template-columns: 1fr; padding: 70px 5%; }
+  .coverage-inner { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+  .form-grid { grid-template-columns: 1fr; }
+  .service-tabs { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .areas-grid { grid-template-columns: 1fr; }
+  .cta-band { text-align: center; justify-content: center; }
+  .cta-right { align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <!-- DWAN Logo SVG — exact brand replication: sharp square, DW white top, AN black bottom -->
+    <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="lg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#d4d4d4"/>
+          <stop offset="45%" stop-color="#aaaaaa"/>
+          <stop offset="100%" stop-color="#6e6e6e"/>
+        </linearGradient>
+      </defs>
+      <rect width="100" height="100" fill="url(#lg)"/>
+      <text x="50" y="50" text-anchor="middle" dominant-baseline="middle"
+        font-family="'Bebas Neue', Impact, 'Arial Black', sans-serif"
+        font-size="48" font-weight="900" fill="#ffffff"
+        textLength="92" lengthAdjust="spacingAndGlyphs">DW</text>
+      <text x="50" y="85" text-anchor="middle" dominant-baseline="middle"
+        font-family="'Bebas Neue', Impact, 'Arial Black', sans-serif"
+        font-size="48" font-weight="900" fill="#0a0a0a"
+        textLength="92" lengthAdjust="spacingAndGlyphs">AN</text>
+    </svg>
+    <div class="nav-brand">
+      <div class="nav-name">Dwan Services</div>
+      <span class="nav-sub">Michigan &amp; Illinois</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="concrete.html">Concrete Coatings</a></li>
+    <li><a href="landscaping.html">Landscaping</a></li>
+    <li><a href="plowing.html">Snow Plowing</a></li>
+    <li><a href="#quote" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="hero-photo" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">St. Joseph, MI &amp; Cook County, IL · Year-Round Service</span>
+    </div>
+    <h1 class="hero-title">DWAN<br><span class="outline">SERVICES</span></h1>
+    <p class="hero-sub">Concrete · <span>Landscaping</span> · Snow Plowing</p>
+
+    <div class="hero-services">
+
+      <!-- CONCRETE COATINGS — paint roller/wall brush icon -->
+      <a href="concrete.html" class="service-btn">
+        <div class="sb-top">
+          <div class="sb-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Paint roller head -->
+              <rect x="4" y="3" width="14" height="6" rx="1.5" stroke="white" stroke-width="1.6"/>
+              <!-- Roller handle arm -->
+              <path d="M11 9 L11 13" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+              <!-- Vertical handle -->
+              <path d="M11 13 L8 13 L8 20" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Handle grip end -->
+              <line x1="6" y1="20" x2="10" y2="20" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+              <!-- Roller cylinder -->
+              <rect x="5" y="4.5" width="12" height="3" rx="1" fill="white" opacity="0.25"/>
+            </svg>
+          </div>
+          <span class="sb-num">01</span>
+        </div>
+        <div class="sb-name">Concrete Coatings</div>
+        <p class="sb-desc">Premium epoxy and polyurea floor systems for garages, basements, patios, and commercial spaces. Durable, high-gloss, and built to last.</p>
+        <span class="sb-arrow">Explore Service →</span>
+      </a>
+
+      <!-- LANDSCAPING — leaf / plant sprouting icon -->
+      <a href="landscaping.html" class="service-btn">
+        <div class="sb-top">
+          <div class="sb-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Ground line -->
+              <line x1="3" y1="20" x2="21" y2="20" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+              <!-- Main stem -->
+              <path d="M12 20 L12 13" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+              <!-- Left leaf -->
+              <path d="M12 16 C12 16 7 15 6 10 C6 10 11 10 12 15" fill="white" opacity="0.9"/>
+              <!-- Right leaf -->
+              <path d="M12 13 C12 13 17 11 18 6 C18 6 13 7 12 12" fill="white" opacity="0.9"/>
+              <!-- Small left sprout -->
+              <path d="M8 20 L8 17 C8 17 6 16 5 14" stroke="white" stroke-width="1.3" stroke-linecap="round" fill="none" opacity="0.6"/>
+              <!-- Small right sprout -->
+              <path d="M16 20 L16 17 C16 17 18 16 19 14" stroke="white" stroke-width="1.3" stroke-linecap="round" fill="none" opacity="0.6"/>
+            </svg>
+          </div>
+          <span class="sb-num">02</span>
+        </div>
+        <div class="sb-name">Landscaping &amp; Lawn</div>
+        <p class="sb-desc">Full-season lawn maintenance, spring and fall cleanups, mulching, edging, shrub trimming, and more. We keep your property sharp all year.</p>
+        <span class="sb-arrow">Explore Service →</span>
+      </a>
+
+      <!-- SNOW PLOWING — clean snowflake icon -->
+      <a href="plowing.html" class="service-btn">
+        <div class="sb-top">
+          <div class="sb-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="12" y1="2" x2="12" y2="22" stroke="white" stroke-width="1.7" stroke-linecap="round"/>
+              <line x1="2" y1="12" x2="22" y2="12" stroke="white" stroke-width="1.7" stroke-linecap="round"/>
+              <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" stroke="white" stroke-width="1.7" stroke-linecap="round"/>
+              <line x1="19.07" y1="4.93" x2="4.93" y2="19.07" stroke="white" stroke-width="1.7" stroke-linecap="round"/>
+              <!-- Branch tips -->
+              <path d="M12 2 L10 5 M12 2 L14 5" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M12 22 L10 19 M12 22 L14 19" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M2 12 L5 10 M2 12 L5 14" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M22 12 L19 10 M22 12 L19 14" stroke="white" stroke-width="1.3" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="2" fill="white"/>
+            </svg>
+          </div>
+          <span class="sb-num">03</span>
+        </div>
+        <div class="sb-name">Snow Plowing</div>
+        <p class="sb-desc">Residential and commercial snow removal with fast response times. Seasonal contracts available so you never have to think about it.</p>
+        <span class="sb-arrow">Explore Service →</span>
+      </a>
+
+    </div>
+
+    <div class="hero-actions">
+      <a href="#quote" class="btn-primary">Get a Free Quote →</a>
+      <a href="tel:2692084383" class="btn-ghost">📞 269.208.4383</a>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item">Concrete Coatings<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Epoxy &amp; Polyurea<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Lawn Care<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Landscaping<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Snow Plowing<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Ice Management<span class="ticker-dot"></span></span>
+    <span class="ticker-item">St. Joseph, MI<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Cook County, IL<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Free Estimates<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Year-Round Service<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Concrete Coatings<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Epoxy &amp; Polyurea<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Lawn Care<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Landscaping<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Snow Plowing<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Ice Management<span class="ticker-dot"></span></span>
+    <span class="ticker-item">St. Joseph, MI<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Cook County, IL<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Free Estimates<span class="ticker-dot"></span></span>
+    <span class="ticker-item">Year-Round Service<span class="ticker-dot"></span></span>
+  </div>
+</div>
+
+<!-- WHY DWAN -->
+<section class="why-section" id="about">
+  <div class="fade-up">
+    <div class="eyebrow"><div class="eyebrow-line2"></div><span class="eyebrow-label">Why Choose Us</span></div>
+    <h2 class="section-title">QUALITY<br>YOU CAN<br><span class="out">TRUST</span></h2>
+    <p style="font-size:14px;font-weight:300;line-height:1.8;color:var(--silver-light);margin:14px 0 20px;max-width:380px;">Built on one principle — do the job right the first time. Whether we're coating a garage floor or clearing a lot at 4am, same work ethic every time.</p>
+    <div class="why-pills">
+      <span class="pill">✓ Free Estimates</span>
+      <span class="pill">✓ Same-Day Response</span>
+      <span class="pill">✓ Year-Round</span>
+      <span class="pill">✓ Licensed &amp; Insured</span>
+    </div>
+    <a href="#quote" class="btn-primary">Get Your Free Quote →</a>
+  </div>
+  <div class="why-cards">
+    <div class="why-card fade-up">
+      <div class="why-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+          <path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/>
+        </svg>
+      </div>
+      <div><div class="why-card-title">All-Season Coverage</div><p class="why-card-text">Concrete and landscaping warm months, plowing all winter. One crew, zero gaps.</p></div>
+    </div>
+    <div class="why-card fade-up" style="transition-delay:.1s">
+      <div class="why-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+          <path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/>
+        </svg>
+      </div>
+      <div><div class="why-card-title">Premium Materials</div><p class="why-card-text">Professional-grade epoxy and polyurea. Our coatings outlast every competitor.</p></div>
+    </div>
+    <div class="why-card fade-up" style="transition-delay:.2s">
+      <div class="why-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+        </svg>
+      </div>
+      <div><div class="why-card-title">Local &amp; Reliable</div><p class="why-card-text">Based in Benton Harbor, MI. You'll always deal directly with Brian — no call centers.</p></div>
+    </div>
+    <div class="why-card fade-up" style="transition-delay:.3s">
+      <div class="why-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+          <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+        </svg>
+      </div>
+      <div><div class="why-card-title">No Surprise Pricing</div><p class="why-card-text">Every job starts with a straight, no-obligation quote. What we say is what you pay.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="coverage-section" id="coverage">
+  <div class="eyebrow"><div class="eyebrow-line2"></div><span class="eyebrow-label">Service Areas</span></div>
+  <h2 class="section-title">MICHIGAN<br>&amp; <span class="out">ILLINOIS</span></h2>
+  <div class="coverage-inner">
+    <div class="fade-up">
+      <p style="font-size:14px;font-weight:300;line-height:1.8;color:var(--silver-light);margin-bottom:24px;max-width:380px;">Based in Benton Harbor, MI — covering all of Southwest Michigan and Cook County, Illinois. Not sure if we reach you? Give Brian a call and we'll make it work.</p>
+      <a href="tel:2692084383" class="btn-primary">Call Brian: 269.208.4383</a>
+    </div>
+    <div class="areas-grid">
+      <div class="area-card fade-up"><div class="area-state">Michigan</div><div class="area-city">St. Joseph</div><div class="area-note">Berrien County</div></div>
+      <div class="area-card fade-up" style="transition-delay:.1s"><div class="area-state">Michigan</div><div class="area-city">Benton Harbor</div><div class="area-note">Home Base</div></div>
+      <div class="area-card fade-up" style="transition-delay:.15s"><div class="area-state">Michigan</div><div class="area-city">SW Michigan</div><div class="area-note">Full Region</div></div>
+      <div class="area-card fade-up" style="transition-delay:.2s"><div class="area-state">Illinois</div><div class="area-city">Cook County</div><div class="area-note">Chicagoland</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE FORM -->
+<section class="form-section" id="quote">
+  <div class="form-section-inner">
+    <div class="form-eyebrow"><div class="eyebrow-line2"></div><span class="eyebrow-label">Free Estimate</span></div>
+    <h2 class="form-title">GET A<br><span class="out">FREE QUOTE</span></h2>
+    <p class="form-subtitle">Tell us about your project and we'll get back to you same day with a straight number — no obligation.</p>
+
+    <div class="service-tabs">
+      <div class="service-tab active" onclick="switchTab('concrete', this)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="3" width="14" height="6" rx="1.5"/>
+          <path d="M11 9 L11 13 L8 13 L8 20"/>
+          <line x1="6" y1="20" x2="10" y2="20"/>
+        </svg>
+        <span class="tab-label">Concrete Coatings</span>
+      </div>
+      <div class="service-tab" onclick="switchTab('landscaping', this)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="20" x2="21" y2="20"/>
+          <path d="M12 20 L12 13"/>
+          <path d="M12 16 C12 16 7 15 6 10 C6 10 11 10 12 15" fill="currentColor" stroke="none" opacity="0.7"/>
+          <path d="M12 13 C12 13 17 11 18 6 C18 6 13 7 12 12" fill="currentColor" stroke="none" opacity="0.7"/>
+        </svg>
+        <span class="tab-label">Landscaping</span>
+      </div>
+      <div class="service-tab" onclick="switchTab('plowing', this)">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+          <line x1="12" y1="2" x2="12" y2="22"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+          <line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/>
+          <circle cx="12" cy="12" r="2" fill="currentColor"/>
+        </svg>
+        <span class="tab-label">Snow Plowing</span>
+      </div>
+    </div>
+
+    <!-- CONCRETE FORM -->
+    <div class="form-panel active" id="form-concrete">
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Brian Smith"></div>
+        <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(269) 555-0000"></div>
+        <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@email.com"></div>
+        <div class="form-group"><label class="form-label">Property Address</label><input class="form-input" type="text" placeholder="123 Main St, St. Joseph, MI"></div>
+        <div class="form-group">
+          <label class="form-label">Space Type</label>
+          <select class="form-select">
+            <option value="" disabled selected>Select space type...</option>
+            <option>Garage</option><option>Basement</option><option>Patio / Porch</option>
+            <option>Commercial Warehouse</option><option>Showroom / Retail</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Approximate Square Footage</label>
+          <select class="form-select">
+            <option value="" disabled selected>Select size...</option>
+            <option>Under 400 sq ft</option><option>400 – 800 sq ft</option>
+            <option>800 – 1,500 sq ft</option><option>1,500 – 3,000 sq ft</option><option>3,000+ sq ft</option>
+          </select>
+        </div>
+        <div class="form-group full"><label class="form-label">Current Condition of the Floor</label><textarea class="form-textarea" placeholder="Any cracks, stains, existing coatings, moisture issues? Describe what you're working with..."></textarea></div>
+        <div class="form-group full">
+          <label class="form-label">Upload a Photo of the Space (optional but helpful)</label>
+          <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+            <div style="font-size:26px;margin-bottom:6px;">📷</div>
+            <div class="upload-text"><strong>Click to upload</strong> or drag and drop</div>
+            <div class="upload-hint">JPG, PNG, HEIC — max 20MB</div>
+            <div id="fileName"></div>
+          </div>
+          <input type="file" id="fileInput" accept="image/*" onchange="document.getElementById('fileName').textContent = this.files[0]?.name || ''">
+        </div>
+      </div>
+      <div class="form-submit-row">
+        <span class="form-note">We'll respond within a few hours — usually same day.</span>
+        <button class="btn-submit" onclick="submitForm(this)">Submit Quote Request →</button>
+      </div>
+    </div>
+
+    <!-- LANDSCAPING FORM -->
+    <div class="form-panel" id="form-landscaping">
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Brian Smith"></div>
+        <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(269) 555-0000"></div>
+        <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@email.com"></div>
+        <div class="form-group"><label class="form-label">Property Address</label><input class="form-input" type="text" placeholder="123 Main St, St. Joseph, MI"></div>
+        <div class="form-group">
+          <label class="form-label">Services Needed</label>
+          <select class="form-select">
+            <option value="" disabled selected>What do you need?</option>
+            <option>Weekly / Bi-Weekly Mowing</option><option>Spring Cleanup</option>
+            <option>Fall Cleanup &amp; Leaf Removal</option><option>Mulching &amp; Bed Work</option>
+            <option>Shrub &amp; Bush Trimming</option><option>Full Season Contract</option>
+            <option>One-Time Service</option><option>Multiple Services</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Approximate Yard Size</label>
+          <select class="form-select">
+            <option value="" disabled selected>Select size...</option>
+            <option>Small (under ¼ acre)</option><option>Medium (¼ – ½ acre)</option>
+            <option>Large (½ – 1 acre)</option><option>Very Large (1+ acre)</option>
+          </select>
+        </div>
+        <div class="form-group full"><label class="form-label">Tell Us More About What You Need</label><textarea class="form-textarea" placeholder="Any specific requests, problem areas, or things you want done? Let us know..."></textarea></div>
+      </div>
+      <div class="form-submit-row">
+        <span class="form-note">We'll respond within a few hours — usually same day.</span>
+        <button class="btn-submit" onclick="submitForm(this)">Submit Quote Request →</button>
+      </div>
+    </div>
+
+    <!-- PLOWING FORM -->
+    <div class="form-panel" id="form-plowing">
+      <div class="form-grid">
+        <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Brian Smith"></div>
+        <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(269) 555-0000"></div>
+        <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@email.com"></div>
+        <div class="form-group"><label class="form-label">Address to be Plowed</label><input class="form-input" type="text" placeholder="123 Main St, St. Joseph, MI"></div>
+        <div class="form-group">
+          <label class="form-label">Property Type</label>
+          <select class="form-select">
+            <option value="" disabled selected>Select type...</option>
+            <option>Residential Driveway</option><option>Commercial Parking Lot</option>
+            <option>Business Entrance</option><option>HOA / Community</option><option>Multiple Properties</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Approximate Area Size</label>
+          <select class="form-select">
+            <option value="" disabled selected>Select size...</option>
+            <option>Single driveway (small)</option><option>Large driveway / 2-car+</option>
+            <option>Small lot (under 5,000 sq ft)</option><option>Medium lot (5,000–20,000 sq ft)</option><option>Large lot (20,000+ sq ft)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Preferred Contract Type</label>
+          <select class="form-select">
+            <option value="" disabled selected>Select contract...</option>
+            <option>Seasonal Contract (flat rate all winter)</option>
+            <option>Per-Push (pay each time)</option><option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Salt / Ice Treatment Needed?</label>
+          <select class="form-select">
+            <option value="" disabled selected>Select...</option>
+            <option>Yes, include salting</option><option>No, plowing only</option><option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-group full"><label class="form-label">Anything Else We Should Know?</label><textarea class="form-textarea" placeholder="Access codes, tight spaces, specific times you need it done by, etc."></textarea></div>
+      </div>
+      <div class="form-submit-row">
+        <span class="form-note">We'll respond within a few hours — usually same day.</span>
+        <button class="btn-submit" onclick="submitForm(this)">Submit Quote Request →</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div>
+    <h2>PREFER TO<br>CALL DIRECTLY?</h2>
+    <p>Brian answers his phone. Skip the form and call for an instant quote.</p>
+  </div>
+  <div class="cta-right">
+    <a href="tel:2692084383" class="cta-phone">269.208.4383</a>
+    <a href="mailto:dwancoatings@gmail.com" class="btn-dark">dwancoatings@gmail.com</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <svg class="logo-svg" style="width:48px;height:48px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lg2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#d4d4d4"/>
+            <stop offset="45%" stop-color="#aaaaaa"/>
+            <stop offset="100%" stop-color="#6e6e6e"/>
+          </linearGradient>
+        </defs>
+        <rect width="100" height="100" fill="url(#lg2)"/>
+        <text x="50" y="50" text-anchor="middle" dominant-baseline="middle"
+          font-family="'Bebas Neue', Impact, 'Arial Black', sans-serif"
+          font-size="48" font-weight="900" fill="#ffffff"
+          textLength="92" lengthAdjust="spacingAndGlyphs">DW</text>
+        <text x="50" y="85" text-anchor="middle" dominant-baseline="middle"
+          font-family="'Bebas Neue', Impact, 'Arial Black', sans-serif"
+          font-size="48" font-weight="900" fill="#0a0a0a"
+          textLength="92" lengthAdjust="spacingAndGlyphs">AN</text>
+      </svg>
+      <div class="footer-logo-name">DWAN SERVICES</div>
+      <div class="footer-logo-sub">Michigan &amp; Illinois</div>
+      <p class="footer-desc">Serving Southwest Michigan and Chicagoland with concrete coatings, landscaping, and snow removal year-round.</p>
+    </div>
+    <div>
+      <div class="footer-col-head">Services</div>
+      <ul class="footer-list">
+        <li><a href="concrete.html">Concrete Coatings</a></li>
+        <li><a href="landscaping.html">Landscaping</a></li>
+        <li><a href="plowing.html">Snow Plowing</a></li>
+        <li><a href="#quote">Free Estimate</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-head">Coverage</div>
+      <ul class="footer-list">
+        <li><a href="#">St. Joseph, MI</a></li>
+        <li><a href="#">Benton Harbor, MI</a></li>
+        <li><a href="#">SW Michigan</a></li>
+        <li><a href="#">Cook County, IL</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-head">Contact</div>
+      <div class="fc-label">Phone</div><div class="fc-val"><a href="tel:2692084383">269.208.4383</a></div>
+      <div class="fc-label">Email</div><div class="fc-val"><a href="mailto:dwancoatings@gmail.com">dwancoatings@gmail.com</a></div>
+      <div class="fc-label">Address</div><div class="fc-val" style="color:var(--silver)">5600 E. Napier Ave.<br>Benton Harbor, MI 49022</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Dwan Services · All Rights Reserved</span>
+    <div><a href="#">Privacy</a><a href="#">Terms</a></div>
+  </div>
+</footer>
+
+<script>
+  setTimeout(function() {
+    var bg = document.getElementById('heroBg');
+    if (bg) bg.classList.add('loaded');
+  }, 100);
+
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
+
+  function switchTab(service, el) {
+    document.querySelectorAll('.service-tab').forEach(function(t) { t.classList.remove('active'); });
+    document.querySelectorAll('.form-panel').forEach(function(p) { p.classList.remove('active'); });
+    el.classList.add('active');
+    var panel = document.getElementById('form-' + service);
+    if (panel) panel.classList.add('active');
+  }
+
+  function submitForm(btn) {
+    btn.textContent = '✓ Sent! We\'ll be in touch soon.';
+    btn.style.background = '#2a7a40';
+    btn.style.color = '#fff';
+    btn.disabled = true;
+  }
+</script>
+</body>
+</html>
