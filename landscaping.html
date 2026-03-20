@@ -16,7 +16,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 .logo-box { width: 46px; height: 46px; background: linear-gradient(160deg, #b8b8b8, #707070); border-radius: 8px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; line-height: 1; }
 .logo-box .dw { color: #fff; font-size: 18px; }
 .logo-box .an { color: #111; font-size: 18px; }
-.nav-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 19px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--white); }
+.nav-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 500; font-size: 19px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--white); }
 .nav-sub { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); font-weight: 600; display: block; margin-top: 1px; }
 .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
 .nav-links a { text-decoration: none; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; color: var(--silver-light); transition: color 0.2s; }
@@ -148,15 +148,16 @@ footer { background: #060606; padding: 64px 5% 28px; border-top: 1px solid rgba(
   <a href="index.html" class="nav-logo">
     <svg width="48" height="48" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;filter:drop-shadow(0 0 10px rgba(232,104,26,0.4)) drop-shadow(0 2px 6px rgba(0,0,0,0.8));">
       <defs>
-        <linearGradient id="lg" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#d4d4d4"/>
-          <stop offset="45%" stop-color="#aaaaaa"/>
-          <stop offset="100%" stop-color="#6e6e6e"/>
+        <linearGradient id="dwan-lg" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#cecece"/>
+          <stop offset="50%" stop-color="#a0a0a0"/>
+          <stop offset="100%" stop-color="#686868"/>
         </linearGradient>
       </defs>
-      <rect width="100" height="100" fill="url(#lg)"/>
-      <text x="50" y="50" text-anchor="middle" dominant-baseline="middle" font-family="'Bebas Neue', Impact, 'Arial Black', sans-serif" font-size="48" font-weight="900" fill="#ffffff" textLength="92" lengthAdjust="spacingAndGlyphs">DW</text>
-      <text x="50" y="85" text-anchor="middle" dominant-baseline="middle" font-family="'Bebas Neue', Impact, 'Arial Black', sans-serif" font-size="48" font-weight="900" fill="#0a0a0a" textLength="92" lengthAdjust="spacingAndGlyphs">AN</text>
+      <rect width="100" height="100" fill="url(#dwan-lg)"/>
+      <line x1="6" y1="50" x2="94" y2="50" stroke="rgba(0,0,0,0.18)" stroke-width="1"/>
+      <text x="50" y="26" text-anchor="middle" dominant-baseline="middle" font-family="'Bebas Neue', Impact, 'Arial Black', sans-serif" font-size="52" font-weight="900" fill="#ffffff" textLength="88" lengthAdjust="spacingAndGlyphs">DW</text>
+      <text x="50" y="74" text-anchor="middle" dominant-baseline="middle" font-family="'Bebas Neue', Impact, 'Arial Black', sans-serif" font-size="52" font-weight="900" fill="#0d0d0d" textLength="88" lengthAdjust="spacingAndGlyphs">AN</text>
     </svg>
     <div><div class="nav-name">Dwan Services</div><span class="nav-sub">Michigan &amp; Illinois</span></div>
   </a>
