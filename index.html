@@ -642,13 +642,13 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
     <h2 class="form-title">GET A<br><span class="out">FREE QUOTE</span></h2>
     <p class="form-subtitle">Tell us about your floor and we'll get back to you same day with a straight number — no obligation, no pressure.</p>
     <div class="form-grid">
-      <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="Brian Smith"></div>
-      <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="(269) 555-0000"></div>
-      <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@email.com"></div>
-      <div class="form-group"><label class="form-label">Property Address</label><input class="form-input" type="text" placeholder="123 Main St, St. Joseph, MI"></div>
+      <div class="form-group"><label class="form-label">Your Name</label><input id="f-name" class="form-input" type="text" placeholder="Brian Smith"></div>
+      <div class="form-group"><label class="form-label">Phone Number</label><input id="f-phone" class="form-input" type="tel" placeholder="(269) 555-0000"></div>
+      <div class="form-group"><label class="form-label">Email Address</label><input id="f-email" class="form-input" type="email" placeholder="you@email.com"></div>
+      <div class="form-group"><label class="form-label">Property Address</label><input id="f-address" class="form-input" type="text" placeholder="123 Main St, St. Joseph, MI"></div>
       <div class="form-group">
         <label class="form-label">Space Type</label>
-        <select class="form-select">
+        <select id="f-space" class="form-select">
           <option value="" disabled selected>Select space type...</option>
           <option>Garage (1-car)</option>
           <option>Garage (2-car or larger)</option>
@@ -661,7 +661,7 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
       </div>
       <div class="form-group">
         <label class="form-label">Approximate Square Footage</label>
-        <select class="form-select">
+        <select id="f-sqft" class="form-select">
           <option value="" disabled selected>Select size...</option>
           <option>Under 400 sq ft</option>
           <option>400 – 800 sq ft</option>
@@ -672,7 +672,7 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
       </div>
       <div class="form-group full">
         <label class="form-label">Current Condition of the Floor</label>
-        <textarea class="form-textarea" placeholder="Any cracks, stains, existing coatings, moisture issues? Describe what you're working with..."></textarea>
+        <textarea id="f-condition" class="form-textarea" placeholder="Any cracks, stains, existing coatings, moisture issues? Describe what you're working with..."></textarea>
       </div>
       <div class="form-group full">
         <label class="form-label">Upload a Photo of the Space (optional but helpful)</label>
@@ -777,11 +777,58 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(function(el) { obs.observe(el); });
 
-  function submitForm(btn) {
-    btn.textContent = '✓ Sent! We\'ll be in touch soon.';
-    btn.style.background = '#2a7a40';
-    btn.style.color = '#fff';
+  async function submitForm(btn) {
+    var name     = document.getElementById('f-name').value.trim();
+    var phone    = document.getElementById('f-phone').value.trim();
+    var email    = document.getElementById('f-email').value.trim();
+    var address  = document.getElementById('f-address').value.trim();
+    var space    = document.getElementById('f-space').value;
+    var sqft     = document.getElementById('f-sqft').value;
+    var condition = document.getElementById('f-condition').value.trim();
+
+    if (!name || !phone) {
+      alert('Please enter at least your name and phone number.');
+      return;
+    }
+
+    btn.textContent = 'Sending...';
     btn.disabled = true;
+
+    var message = [
+      'Name: '            + (name      || '—'),
+      'Phone: '           + (phone     || '—'),
+      'Email: '           + (email     || '—'),
+      'Address: '         + (address   || '—'),
+      'Space Type: '      + (space     || '—'),
+      'Square Footage: '  + (sqft      || '—'),
+      'Floor Condition: ' + (condition || '—')
+    ].join('\n');
+
+    try {
+      var res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: '755cf8e7-9e60-41a4-a6a5-34363e9d6db4',
+          subject: 'New Quote Request — Dwan Services',
+          from_name: 'Dwan Services Website',
+          replyto: email || '',
+          message: message
+        })
+      });
+      var data = await res.json();
+      if (data.success) {
+        btn.textContent = '✓ Sent! We\'ll be in touch soon.';
+        btn.style.background = '#2a7a40';
+        btn.style.color = '#fff';
+      } else {
+        throw new Error('failed');
+      }
+    } catch(e) {
+      btn.textContent = 'Submit Quote Request →';
+      btn.disabled = false;
+      alert('Something went wrong. Please call us at 269.208.4383 or email dwancoatings@gmail.com directly.');
+    }
   }
 </script>
 </body>
