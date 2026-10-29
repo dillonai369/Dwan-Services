@@ -15,6 +15,10 @@
 <meta name="twitter:title" content="Dwan Services | Concrete Coatings — Michigan &amp; Illinois">
 <meta name="twitter:description" content="Premium epoxy and polyurea concrete floor coatings. Garages, basements, commercial spaces. Free estimates — same-day response.">
 <meta name="twitter:image" content="https://www.dwanservices.com/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="hero-bg.jpg" media="(min-width: 701px)" fetchpriority="high">
+<link rel="preload" as="image" href="hero-bg-sm.jpg" media="(max-width: 700px)" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,6 +48,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; a
 .hero { height: 100vh; min-height: 640px; position: relative; overflow-x: clip; overflow-y: hidden; display: flex; flex-direction: column; justify-content: center; padding: 66px 5% 0; }
 .hero-photo { position: absolute; inset: 0; z-index: 0; background-image: url('hero-bg.jpg'); background-size: cover; background-position: center 55%; filter: brightness(0.38) saturate(0.6); transform: scale(1.04); transition: transform 8s ease-out; }
 .hero-photo.loaded { transform: scale(1); }
+@media (max-width: 700px) { .hero-photo { background-image: url('hero-bg-sm.jpg'); } }
 .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(8,8,8,0.55) 0%, rgba(8,8,8,0.05) 28%, rgba(8,8,8,0.82) 78%, rgba(8,8,8,1) 100%), radial-gradient(ellipse 50% 60% at 82% 12%, rgba(232,104,26,0.22) 0%, transparent 65%); }
 .hero-content { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; gap: 14px; max-width: 860px; }
 .hero-eyebrow { display: flex; align-items: center; gap: 10px; }
@@ -604,31 +609,31 @@ footer { background: #050505; padding: 58px 5% 24px; border-top: 1px solid rgba(
     <!-- Pairs added here — more coming soon -->
     <div class="ba-pair fade-up">
       <div class="ba-slot before">
-        <img src="before-after-before.jpg" alt="Before: bare concrete floor being ground and prepped">
+        <img src="before-after-before.jpg" alt="Before: bare concrete floor being ground and prepped" loading="lazy" decoding="async">
         <span class="ba-tag before-tag">Before</span>
       </div>
       <div class="ba-slot after">
-        <img src="before-after-after.jpg" alt="After: flake epoxy concrete coating applied">
+        <img src="before-after-after.jpg" alt="After: flake epoxy concrete coating applied" loading="lazy" decoding="async">
         <span class="ba-tag after-tag">After</span>
       </div>
     </div>
     <div class="ba-pair fade-up" style="transition-delay:.1s">
       <div class="ba-slot before">
-        <img src="before-after-before-2.jpg" alt="Before: garage concrete floor being ground and prepped">
+        <img src="before-after-before-2.jpg" alt="Before: garage concrete floor being ground and prepped" loading="lazy" decoding="async">
         <span class="ba-tag before-tag">Before</span>
       </div>
       <div class="ba-slot after">
-        <img src="before-after-after-2.jpg" alt="After: dark flake epoxy coating on garage floor">
+        <img src="before-after-after-2.jpg" alt="After: dark flake epoxy coating on garage floor" loading="lazy" decoding="async">
         <span class="ba-tag after-tag">After</span>
       </div>
     </div>
     <div class="ba-pair fade-up" style="transition-delay:.2s">
       <div class="ba-slot before">
-        <img src="before-after-before-3.jpg" alt="Before: weathered concrete steps with staining and wear">
+        <img src="before-after-before-3.jpg" alt="Before: weathered concrete steps with staining and wear" loading="lazy" decoding="async">
         <span class="ba-tag before-tag">Before</span>
       </div>
       <div class="ba-slot after">
-        <img src="before-after-after-3.jpg" alt="After: flake epoxy coating on outdoor concrete steps">
+        <img src="before-after-after-3.jpg" alt="After: flake epoxy coating on outdoor concrete steps" loading="lazy" decoding="async">
         <span class="ba-tag after-tag">After</span>
       </div>
     </div>
